@@ -15,6 +15,12 @@ public class SportsEquipmentManagement extends Application {
         stage.setTitle("Sports Equipment Management System");
         stage.setScene(scene);
         stage.show();
+        //This is a comment
+        System.out.println("This is a change.");
+        System.out.println("This is a change.");
+        System.out.println("This is a change.");
+        int x = 10;
+        System.out.println(x + " This is a change.");
     }
 
     public static void main(String[] args) {
