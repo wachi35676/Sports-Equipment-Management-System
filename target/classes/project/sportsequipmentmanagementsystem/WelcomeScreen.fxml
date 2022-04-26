@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.WelcomeScreenController">
+   <children>
+      <Circle fill="DODGERBLUE" layoutX="399.0" layoutY="245.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="logInStudent" layoutX="332.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Student" />
+      <Button fx:id="logInTeacher" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Teacher" />
+      <Button fx:id="logInPrincipal" layoutX="507.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Principal" />
+   </children>
+</AnchorPane>
