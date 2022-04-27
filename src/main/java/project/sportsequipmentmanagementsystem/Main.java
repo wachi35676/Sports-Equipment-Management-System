@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SportsEquipmentManagement extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SportsEquipmentManagement.class.getResource("WelcomeScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("WelcomeScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Sports Equipment Management System");
         stage.setScene(scene);
@@ -25,5 +25,12 @@ public class SportsEquipmentManagement extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public void changeSceneToPrincipalMenu(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainPrincipalScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+
+        stage.show();
     }
 }
