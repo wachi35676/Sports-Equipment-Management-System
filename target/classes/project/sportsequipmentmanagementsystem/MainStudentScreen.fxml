@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -97,6 +98,23 @@
             <Font name="Segoe UI" size="12.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="112.0" layoutY="77.0" prefHeight="504.0" prefWidth="672.0" style="-fx-background-color: #5b5b5b;" />
+      <AnchorPane layoutX="112.0" layoutY="77.0" prefHeight="504.0" prefWidth="672.0" style="-fx-background-color: #5b5b5b;">
+         <children>
+            <Pane layoutX="22.0" layoutY="32.0" prefHeight="335.0" prefWidth="629.0" style="-fx-background-color: #737373;">
+               <children>
+                  <Text layoutX="270.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Details" />
+               </children>
+            </Pane>
+            <Pane layoutX="22.0" layoutY="384.0" prefHeight="108.0" prefWidth="629.0" style="-fx-background-color: #737373;">
+               <children>
+                  <Text layoutX="60.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recently borrowed: " />
+                  <Pane layoutX="204.0" layoutY="19.0" prefHeight="70.0" prefWidth="267.0" style="-fx-background-color: #808080;">
+                     <children>
+                        <Text layoutX="34.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image Of Last Borrowed Equipment" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children></AnchorPane>
 </children>
 </AnchorPane>
