@@ -53,7 +53,7 @@
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
     <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="34.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@whistle-icon.png" />
+            <Image url="@../../../../src/main/resources/project/sportsequipmentmanagementsystem/payFine_icon.png" />
         </image>
     </ImageView>
     <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="33.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
@@ -67,12 +67,7 @@
             <Font name="Segoe UI" size="12.0" />
         </font>
     </Text>
-    <Text fill="WHITE" layoutX="27.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage">
-        <font>
-            <Font name="Segoe UI" size="12.0" />
-        </font>
-    </Text>
-    <Text fill="WHITE" layoutX="26.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
+    <Text fill="WHITE" layoutX="27.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
         <font>
             <Font name="Segoe UI" size="12.0" />
         </font>
