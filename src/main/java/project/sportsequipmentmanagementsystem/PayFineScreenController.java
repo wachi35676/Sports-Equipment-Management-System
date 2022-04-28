@@ -9,9 +9,17 @@ import java.io.IOException;
 
 public class PayFineScreenController {
     public Button goBackToHome = new Button();
+    public Button borrowEquipment = new Button();
 
     public void goBackToHome (ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         new Main().changeSceneToMainStudentScreen(stage);
     }
+
+    public void borrowEquipment (ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        new Main().changeSceneToBorrowEquipment(stage);
+    }
+
+
 }

@@ -118,5 +118,6 @@
         </Text>
         <Rectangle arcHeight="10.0" arcWidth="10.0" fill="WHITE" height="40.0" layoutX="12.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="5.0" />
       <Button fx:id="goBackToHome" layoutX="15.0" layoutY="68.0" mnemonicParsing="false" onAction="#goBackToHome" prefHeight="66.0" prefWidth="68.0" style="-fx-background-color: none;" />
+      <Button fx:id="borrowEquipment" layoutX="16.0" layoutY="167.0" mnemonicParsing="false" onAction="#borrowEquipment" prefHeight="85.0" prefWidth="68.0" style="-fx-background-color: none;" />
     </children>
 </AnchorPane>

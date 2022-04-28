@@ -130,5 +130,6 @@
             </font>
         </Text>
       <Button fx:id="goBackToHome" layoutX="16.0" layoutY="71.0" mnemonicParsing="false" onAction="#goBackToHome" prefHeight="60.0" prefWidth="67.0" style="-fx-background-color: none;" />
+      <Button fx:id="payFine" layoutX="16.0" layoutY="285.0" mnemonicParsing="false" onAction="#payFine" prefHeight="60.0" prefWidth="67.0" style="-fx-background-color: none;" />
     </children>
 </AnchorPane>
