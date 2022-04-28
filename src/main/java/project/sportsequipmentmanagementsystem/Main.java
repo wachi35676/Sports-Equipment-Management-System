@@ -40,5 +40,8 @@ public class Main extends Application {
         stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
 
         stage.show();
+        //This is a temporary change
+        System.out.println("This is a change");
+
     }
 }
