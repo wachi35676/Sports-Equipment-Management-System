@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.WelcomeScreenController">
    <children>
       <Circle fill="DODGERBLUE" layoutX="399.0" layoutY="245.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="logInStudent" layoutX="332.0" layoutY="424.0" mnemonicParsing="false" onAction="#logInStudent" text="Log in as Student" />
+      <Button fx:id="logInStudent" layoutX="332.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Student" />
       <Button fx:id="logInTeacher" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Teacher" />
       <Button fx:id="logInPrincipal" layoutX="507.0" layoutY="424.0" mnemonicParsing="false" onAction="#logInPrincipal" text="Log in as Principal" />
    </children>

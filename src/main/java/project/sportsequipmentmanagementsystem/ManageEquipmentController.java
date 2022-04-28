@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainPrincipalScreenController {
+public class ManageEquipmentController {
     public Button manageEquipmentButton = new Button();
     public Button manageTeacherButton = new Button();
     public Button homeButton = new Button();
