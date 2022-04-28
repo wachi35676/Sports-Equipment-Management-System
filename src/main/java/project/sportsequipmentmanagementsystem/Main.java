@@ -15,22 +15,31 @@ public class Main extends Application {
         stage.setTitle("Sports Equipment Management System");
         stage.setScene(scene);
         stage.show();
-        //This is a comment
-        System.out.println("This is a change.");
-        System.out.println("This is a change.");
-        System.out.println("This is a change.");
-        int x = 10;
-        System.out.println(x + " This is a change.");
     }
 
     public static void main(String[] args) {
         launch();
     }
 
-    public void changeSceneToPrincipalMenu(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainPrincipalScreen.fxml"));
+    public void changeSceneToMainStudentScreen(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainStudentScreen.fxml"));
         stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
 
         stage.show();
     }
+
+    public void changeSceneToBorrowEquipment(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("BorrowEquipmentScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+
+        stage.show();
+    }
+
+    public void changeSceneToPayFine(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("PayFineStudentScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+
+        stage.show();
+    }
+
 }

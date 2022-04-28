@@ -8,9 +8,9 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.WelcomeScreenController">
    <children>
       <Circle fill="WHITE" layoutX="399.0" layoutY="245.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="logInStudent" layoutX="332.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Student" />
-      <Button fx:id="logInTeacher" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" text="Log in as Teacher" />
-      <Button fx:id="logInPrincipal" layoutX="507.0" layoutY="424.0" mnemonicParsing="false" onAction="#logInPrincipal" text="Log in as Principal" />
       <Text layoutX="331.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sports Management Logo" />
+      <Button fx:id="teacherLogIn" layoutX="141.0" layoutY="445.0" mnemonicParsing="false" text="Login as Teacher" />
+      <Button fx:id="studentLogin" layoutX="347.0" layoutY="445.0" mnemonicParsing="false" onAction="#logInStudent" text="Login as Student" />
+      <Button fx:id="principalLogin" layoutX="528.0" layoutY="445.0" mnemonicParsing="false" text="Login as Principal" />
    </children>
 </AnchorPane>

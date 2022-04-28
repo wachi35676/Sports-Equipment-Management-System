@@ -9,12 +9,12 @@ import java.io.IOException;
 
 public class WelcomeScreenController {
     //Defining buttons
-    public Button logInTeacher = new Button();
-    public Button logInStudent = new Button();
-    public Button logInPrincipal = new Button();
+    public Button teacherLogIn = new Button();
+    public Button studentLogin = new Button();
+    public Button principalLogin = new Button();
 
-    public void logInPrincipal (ActionEvent event) throws IOException {
+    public void logInStudent (ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        new Main().changeSceneToPrincipalMenu(stage);
+        new Main().changeSceneToMainStudentScreen(stage);
     }
 }
