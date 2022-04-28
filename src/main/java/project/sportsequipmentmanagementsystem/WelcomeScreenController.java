@@ -17,4 +17,9 @@ public class WelcomeScreenController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         new Main().changeSceneToPrincipalMenu(stage);
     }
+
+    public void logInStudent (ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        new Main().changeSceneToStudentMenu(stage);
+    }
 }
