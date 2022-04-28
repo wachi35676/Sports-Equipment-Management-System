@@ -28,8 +28,22 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void changeSceneToStudentMenu(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainStudentScreen.fxml"));
+    public void changeSceneToManageBorrowEquipment(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ManageEquipmentScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+
+        stage.show();
+    }
+
+    public void changeSceneToManageTeacher(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ManageTeacherScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+
+        stage.show();
+    }
+
+    public void changeSceneToManageStudent(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ManageStudentScreen.fxml"));
         stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
 
         stage.show();
