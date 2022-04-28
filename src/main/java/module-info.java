@@ -9,6 +9,7 @@ module project.sportsequipmentmanagementsystem {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires javafx.graphics;
 
     opens project.sportsequipmentmanagementsystem to javafx.fxml;
     exports project.sportsequipmentmanagementsystem;
