@@ -21,6 +21,13 @@ public class Main extends Application {
         launch();
     }
 
+    public void changeSceneToWelcomeScreen(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("WelcomeScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+
+        stage.show();
+    }
+
     public void changeSceneToMainStudentScreen(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainStudentScreen.fxml"));
         stage.setScene(new Scene(fxmlLoader.load(), 800, 600));

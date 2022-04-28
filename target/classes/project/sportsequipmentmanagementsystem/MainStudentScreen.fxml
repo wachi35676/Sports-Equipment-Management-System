@@ -119,5 +119,6 @@
             </children></AnchorPane>
       <Button fx:id="borrowEquipment" layoutX="19.0" layoutY="160.0" mnemonicParsing="false" onAction="#borrowEquipment" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
       <Button fx:id="payFine" layoutX="21.0" layoutY="285.0" mnemonicParsing="false" onAction="#payFine" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
+      <Button fx:id="logOut" layoutX="17.0" layoutY="511.0" mnemonicParsing="false" onAction="#goToWelcomeScreen" prefHeight="70.0" prefWidth="65.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
     </children>
 </AnchorPane>
