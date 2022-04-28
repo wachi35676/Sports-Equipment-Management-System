@@ -22,4 +22,5 @@ public class WelcomeScreenController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         new Main().changeSceneToStudentMenu(stage);
     }
+
 }
