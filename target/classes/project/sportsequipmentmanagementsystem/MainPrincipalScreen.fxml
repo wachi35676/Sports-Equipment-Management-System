@@ -48,9 +48,9 @@
             <Image url="@search-icon.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="34.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@whistle-icon.png" />
@@ -61,7 +61,6 @@
             <Image url="@graduation-cap-icon.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="540.0" layoutX="96.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="704.0" />
       <Text fill="WHITE" layoutX="25.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teachers">
          <font>
             <Font name="Segoe UI" size="12.0" />
@@ -97,5 +96,7 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Text>
+      <Pane layoutX="96.0" layoutY="59.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
    </children>
 </AnchorPane>
