@@ -136,7 +136,7 @@
                   <Image url="@trash-icon.png" />
                </image>
             </ImageView>
-            <Text layoutX="259.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Damaged">
+            <Text layoutX="259.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Girls Sports Teacher">
                <font>
                   <Font name="Segoe UI" size="13.0" />
                </font>
