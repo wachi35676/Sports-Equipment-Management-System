@@ -96,7 +96,10 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Text>
-      <Pane layoutX="96.0" layoutY="59.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <Pane layoutX="96.0" layoutY="59.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+         <children>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f3f4ed" height="200.0" layoutX="22.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+         </children></Pane>
       <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
       <Text fill="WHITE" layoutX="34.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
          <font>
