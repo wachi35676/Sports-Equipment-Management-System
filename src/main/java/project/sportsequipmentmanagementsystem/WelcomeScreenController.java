@@ -23,4 +23,8 @@ public class WelcomeScreenController {
         new Main().changeSceneToStudentMenu(stage);
     }
 
+    public void LogInAsTeacher(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        new Main().changeSceneToTeacherMenu(stage);
+    }
 }

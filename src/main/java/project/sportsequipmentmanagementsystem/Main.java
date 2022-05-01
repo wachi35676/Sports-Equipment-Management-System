@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("WelcomeScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainSportsTeacherScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Sports Equipment Management System");
         stage.setScene(scene);
@@ -35,6 +35,12 @@ public class Main extends Application {
         stage.show();
     }
 
+    public void changeSceneToTeacherMenu(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainSportsTeacherScreen.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+        stage.show();
+    }
+
     public void goBackToMainMenu(Stage stage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("WelcomeScreen.fxml"));
         stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
@@ -43,5 +49,20 @@ public class Main extends Application {
         //This is a temporary change
         System.out.println("This is a change");
 
+    }
+    public void changeSceneToEquipmentMenu(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CheckIssuedEquipment.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+        stage.show();
+    }
+    public void changeSceneToIssueFine(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("IssueFine.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+        stage.show();
+    }
+    public void changeScenetoReturnEquipment(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ReturnIssueEquipment.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
+        stage.show();
     }
 }
