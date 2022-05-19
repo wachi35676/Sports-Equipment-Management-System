@@ -32,7 +32,7 @@
             <Font name="System Bold" size="32.0" />
          </font>
       </Text>
-      <Button fx:id="logInStudent" layoutX="94.0" layoutY="385.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="149.0" style="-fx-background-radius: 10; -fx-background-color: black;" text="Log in as Student" textFill="WHITE">
+      <Button fx:id="logInStudent" layoutX="94.0" layoutY="385.0" mnemonicParsing="false" onAction="#logInStudent" prefHeight="43.0" prefWidth="149.0" style="-fx-background-radius: 10; -fx-background-color: black;" text="Log in as Student" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
@@ -45,6 +45,5 @@
             <Font size="13.0" />
          </font>
       </Text>
-
    </children>
 </AnchorPane>
