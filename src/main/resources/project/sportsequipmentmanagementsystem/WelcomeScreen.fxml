@@ -23,7 +23,7 @@
       </ImageView>
       <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#ffffffc0" height="91.0" layoutX="11.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" width="330.0" />
       <Circle fill="WHITE" layoutX="56.0" layoutY="68.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="logInTeacher" layoutX="94.0" layoutY="318.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="149.0" style="-fx-background-radius: 10; -fx-background-color: black;" text="Log in as Teacher" textFill="WHITE">
+      <Button fx:id="logInTeacher" layoutX="94.0" layoutY="318.0" mnemonicParsing="false" onAction="#LogInAsTeacher" prefHeight="43.0" prefWidth="149.0" style="-fx-background-radius: 10; -fx-background-color: black;" text="Log in as Teacher" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
