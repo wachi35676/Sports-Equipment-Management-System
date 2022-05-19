@@ -1,14 +1,14 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.UIControllers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import project.sportsequipmentmanagementsystem.Main;
 
 import java.io.IOException;
 
-public class ManageTeacherController {
-
+public class MainPrincipalScreenController {
     public Button manageEquipmentButton = new Button();
     public Button manageTeacherButton = new Button();
     public Button homeButton = new Button();

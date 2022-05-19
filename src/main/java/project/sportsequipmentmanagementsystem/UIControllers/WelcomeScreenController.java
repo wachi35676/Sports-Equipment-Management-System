@@ -1,9 +1,10 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.UIControllers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import project.sportsequipmentmanagementsystem.Main;
 
 import java.io.IOException;
 
