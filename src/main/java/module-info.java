@@ -10,6 +10,7 @@ module project.sportsequipmentmanagementsystem {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
+    requires java.sql;
 
     opens project.sportsequipmentmanagementsystem to javafx.fxml;
     exports project.sportsequipmentmanagementsystem;
