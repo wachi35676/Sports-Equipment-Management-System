@@ -13,4 +13,6 @@ module project.sportsequipmentmanagementsystem {
 
     opens project.sportsequipmentmanagementsystem to javafx.fxml;
     exports project.sportsequipmentmanagementsystem;
+    exports project.sportsequipmentmanagementsystem.UIControllers;
+    opens project.sportsequipmentmanagementsystem.UIControllers to javafx.fxml;
 }
