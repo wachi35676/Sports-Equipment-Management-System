@@ -1,5 +1,7 @@
 package project.sportsequipmentmanagementsystem;
 
+import java.util.ArrayList;
+
 public class EducationalInstitute {
     private StudentRecord studentRecord = new StudentRecord();
     private PrincipalRecord principalRecord;
@@ -15,8 +17,16 @@ public class EducationalInstitute {
         this.sportsRoom = sportsRoom;
     }
 
+    public ArrayList<Student> getAllStudentRecords(){
+        return studentRecord.getAllStudentRecords();
+    }
+
     public void addStudent(String rollNumber, String name, String dateOfBirth){
         studentRecord.addStudent(rollNumber, name, dateOfBirth);
+    }
+
+    public void removeStudent(String rollNumber){
+        studentRecord.removeStudent(rollNumber);
     }
 
     public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
