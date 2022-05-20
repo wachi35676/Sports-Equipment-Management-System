@@ -36,4 +36,22 @@ public class DBHandler extends PersistenceHandler{
             System.out.println(e);
         }
     }
+
+    public void addEquipment(Equipment equipment){
+        try{
+            String sql = "insert into Equipment (Equipment_ID, Name, Brand_Name, Availability, Room_ID) values (?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, equipment.getEquipmentID().toString());
+            preparedStatement.setString(2, equipment.getName());
+            preparedStatement.setString(3, equipment.getBrand());
+            preparedStatement.setString(4, equipment.getAvailability());
+            preparedStatement.setString(5, equipment.getRoom());
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
 }

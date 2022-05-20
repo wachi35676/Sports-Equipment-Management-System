@@ -1,4 +1,4 @@
-package project.sportsequipmentmanagementsystem.UIControllers;
+package project.sportsequipmentmanagementsystem.UIControllers.PrincipalScreenControllers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
