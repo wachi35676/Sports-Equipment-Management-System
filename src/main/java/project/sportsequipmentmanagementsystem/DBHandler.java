@@ -54,4 +54,20 @@ public class DBHandler extends PersistenceHandler{
             System.out.println(e);
         }
     }
+
+    public void addSportTeacher(SportsTeacher sportsTeacher){
+        try{
+            String sql = "insert into sports_teacher (SportsTeacherID, Name, Date_Of_Birth) values (?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, sportsTeacher.getId());
+            preparedStatement.setString(2, sportsTeacher.getName());
+            preparedStatement.setString(3, sportsTeacher.getDateOfBirth().getYear() +"-"+ sportsTeacher.getDateOfBirth().getMonth() + "-" + sportsTeacher.getDateOfBirth().getDay());
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
 }

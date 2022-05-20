@@ -3,7 +3,7 @@ package project.sportsequipmentmanagementsystem;
 public class EducationalInstitute {
     private StudentRecord studentRecord = new StudentRecord();
     private PrincipalRecord principalRecord;
-    private SportsTeacherRecord sportsTeacherRecord;
+    private SportsTeacherRecord sportsTeacherRecord = new SportsTeacherRecord();
     private SportsRoom sportsRoom = new SportsRoom();
 
     public EducationalInstitute(){}
@@ -21,6 +21,10 @@ public class EducationalInstitute {
 
     public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
         sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
+    }
+
+    public void addSportsTeacher(String id, String name, String dateOfBirth){
+        sportsTeacherRecord.addTeacher(id, name,dateOfBirth);
     }
 
     public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {
