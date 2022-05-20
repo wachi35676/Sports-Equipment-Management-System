@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.ManageTeacherController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.PrincipalScreenControllers.ManageTeacherController">
    <children>
       <Rectangle arcHeight="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
       <Rectangle arcHeight="5.0" height="60.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
@@ -98,54 +98,12 @@
       </Text>
       <Pane layoutX="96.0" layoutY="59.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
          <children>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f3f4ed" height="200.0" layoutX="23.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
             <Text layoutX="24.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of All Sports Teacher">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Text>
             <Line endX="550.0" layoutX="124.0" layoutY="58.0" startX="-100.0" />
-            <Text layoutX="33.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amir Tariq">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Text>
-            <Text layoutX="35.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boys Sports Teacher">
-               <font>
-                  <Font name="Segoe UI" size="13.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="153.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@trash-icon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="187.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pencil-icon.png" />
-               </image>
-            </ImageView>
-            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f3f4ed" height="200.0" layoutX="247.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="411.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@pencil-icon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="377.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@trash-icon.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="259.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Girls Sports Teacher">
-               <font>
-                  <Font name="Segoe UI" size="13.0" />
-               </font>
-            </Text>
-            <Text layoutX="257.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anya Arshad">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Text>
             <Rectangle arcHeight="20.0" arcWidth="20.0" height="40.0" layoutX="587.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
             <Text fill="WHITE" layoutX="631.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add">
                <font>
@@ -156,14 +114,13 @@
                   <Image url="@add-icon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="129.0" fitWidth="179.0" layoutX="34.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@sportsteacherM.jpg" />
-               </image></ImageView>
-            <ImageView fitHeight="129.0" fitWidth="179.0" layoutX="268.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@sportsteacherF.jpg" />
-               </image></ImageView>
+            <Text layoutX="24.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TeacherID:" />
+            <TextField fx:id="teacherID" layoutX="124.0" layoutY="81.0" />
+            <TextField fx:id="name" layoutX="124.0" layoutY="125.0" />
+            <Text layoutX="24.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+            <TextField fx:id="dateOfBirth" layoutX="124.0" layoutY="169.0" />
+            <Text layoutX="24.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth:" />
+            <Button fx:id="addTeacher" layoutX="587.0" layoutY="8.0" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" />
          </children></Pane>
       <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
       <Text fill="WHITE" layoutX="34.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">

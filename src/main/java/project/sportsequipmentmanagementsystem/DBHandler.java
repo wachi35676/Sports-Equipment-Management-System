@@ -8,7 +8,7 @@ public class DBHandler extends PersistenceHandler{
     public void connectDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/SEMSDB", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/semsdb", "root", "");
             if (connection == null){
                 System.out.println("DB Connection Failed");
             }
@@ -29,6 +29,40 @@ public class DBHandler extends PersistenceHandler{
             preparedStatement.setString(1, student.getId());
             preparedStatement.setString(2, student.getName());
             preparedStatement.setString(3, student.getDate().getYear() +"-"+ student.getDate().getMonth() + "-" + student.getDate().getDay());
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    public void addEquipment(Equipment equipment){
+        try{
+            String sql = "insert into Equipment (Equipment_ID, Name, Brand_Name, Availability, Room_ID) values (?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, equipment.getEquipmentID().toString());
+            preparedStatement.setString(2, equipment.getName());
+            preparedStatement.setString(3, equipment.getBrand());
+            preparedStatement.setString(4, equipment.getAvailability());
+            preparedStatement.setString(5, equipment.getRoom());
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    public void addSportTeacher(SportsTeacher sportsTeacher){
+        try{
+            String sql = "insert into sports_teacher (SportsTeacherID, Name, Date_Of_Birth) values (?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, sportsTeacher.getId());
+            preparedStatement.setString(2, sportsTeacher.getName());
+            preparedStatement.setString(3, sportsTeacher.getDateOfBirth().getYear() +"-"+ sportsTeacher.getDateOfBirth().getMonth() + "-" + sportsTeacher.getDateOfBirth().getDay());
 
             preparedStatement.execute();
         }
