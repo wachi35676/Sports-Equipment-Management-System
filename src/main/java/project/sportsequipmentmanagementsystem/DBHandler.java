@@ -1,8 +1,9 @@
 package project.sportsequipmentmanagementsystem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
-public class DBHandler extends PersistenceHandler{
+public class DBHandler implements PersistenceHandler{
     private Connection connection = null;
 
     public void connectDB(){
@@ -28,7 +29,7 @@ public class DBHandler extends PersistenceHandler{
 
             preparedStatement.setString(1, student.getId());
             preparedStatement.setString(2, student.getName());
-            preparedStatement.setString(3, student.getDate().getYear() +"-"+ student.getDate().getMonth() + "-" + student.getDate().getDay());
+            preparedStatement.setString(3, student.getDate().toString());
 
             preparedStatement.execute();
         }
@@ -62,7 +63,7 @@ public class DBHandler extends PersistenceHandler{
 
             preparedStatement.setString(1, sportsTeacher.getId());
             preparedStatement.setString(2, sportsTeacher.getName());
-            preparedStatement.setString(3, sportsTeacher.getDateOfBirth().getYear() +"-"+ sportsTeacher.getDateOfBirth().getMonth() + "-" + sportsTeacher.getDateOfBirth().getDay());
+            preparedStatement.setString(3, sportsTeacher.getDateOfBirth().toString());
 
             preparedStatement.execute();
         }
@@ -70,4 +71,42 @@ public class DBHandler extends PersistenceHandler{
             System.out.println(e);
         }
     }
+
+    @Override
+    public ArrayList<Student> getAllStudents() {
+        ArrayList<Student> students = new ArrayList<>();
+
+        try{
+            String sql = "select * from student";
+            Statement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                //ugly code and bad practice i know plz spare me
+                students.add(new Student (resultSet.getString("Student_ID"), resultSet.getString("Name"), new Date (resultSet.getString("Date_Of_Birth"))));
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return students;
+    }
+
+    @Override
+    public void removeStudent(String rollNumber) {
+        try{
+            String sql = "delete from student where Student_ID=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1,rollNumber);
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+
 }

@@ -1,11 +1,15 @@
 package project.sportsequipmentmanagementsystem;
 
 public class Date {
-    private int day;
-    private int month;
-    private int year;
+    private Integer day;
+    private Integer month;
+    private Integer year;
 
     public Date (String date){
+        if (date.length() > 8){
+            date = date.replaceAll("/","");
+            date = date.replaceAll("-","");
+        }
         this.year = Integer.parseInt(date.substring(0,4));
         this.month = Integer.parseInt(date.substring(4,6));
         this.day = Integer.parseInt(date.substring(6));
@@ -33,5 +37,10 @@ public class Date {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return year.toString() + "-" + month.toString() + "-" + day.toString();
     }
 }
