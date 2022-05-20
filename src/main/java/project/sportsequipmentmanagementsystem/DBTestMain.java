@@ -1,12 +1,15 @@
 package project.sportsequipmentmanagementsystem;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class DBTestMain {
     public static void main(String[] args) {
-        DBHandler dbHandler = new DBHandler();
+        GregorianCalendar calendar = new GregorianCalendar(2001, Calendar.AUGUST, 17);
 
-        dbHandler.connectDB();
-
-        Student student = new Student("2315","Muhammad Wasif Ali Wasif", "Male");
-        dbHandler.addStudent(student);
+        System.out.println(calendar.MONTH);
     }
 }

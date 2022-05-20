@@ -3,14 +3,22 @@ package project.sportsequipmentmanagementsystem;
 public class Student {
     private String id;
     private String name;
-    private String gender;
+    private Date date;
 
     public Student (){}
 
-    public Student(String id, String name, String gender) {
+    public Student(String id, String name, Date date) {
         this.id = id;
         this.name = name;
-        this.gender = gender;
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getId() {
@@ -27,13 +35,5 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 }

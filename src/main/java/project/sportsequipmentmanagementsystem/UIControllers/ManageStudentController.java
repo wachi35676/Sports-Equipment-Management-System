@@ -3,7 +3,9 @@ package project.sportsequipmentmanagementsystem.UIControllers;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
 
 import java.io.IOException;
@@ -15,6 +17,10 @@ public class ManageStudentController {
     public Button homeButton = new Button();
     public Button manageStudentButton = new Button();
     public Button logOutButton = new Button();
+
+    public TextField name = new TextField();
+    public TextField rollNumber = new TextField();
+    public TextField dateOfBirth = new TextField();
 
     public void logOut(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -39,5 +45,9 @@ public class ManageStudentController {
     public void goToStudent(ActionEvent event) throws IOException{
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         new Main().changeSceneToManageStudent(stage);
+    }
+
+    public void addStudent(ActionEvent event) throws IOException{
+        new EducationalInstitute().addStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
     }
 }
