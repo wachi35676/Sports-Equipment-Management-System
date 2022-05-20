@@ -2,7 +2,7 @@ package project.sportsequipmentmanagementsystem;
 
 import java.sql.*;
 
-public class DBHandler {
+public class DBHandler extends PersistenceHandler{
     private Connection connection = null;
 
     public void connectDB(){
@@ -23,12 +23,12 @@ public class DBHandler {
 
     public void addStudent(Student student){
         try{
-            String sql = "insert into Student values (?,?,?)";
+            String sql = "insert into Student (Student_ID, Name, Date_Of_Birth) values (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, student.getId());
             preparedStatement.setString(2, student.getName());
-            preparedStatement.setString(3, student.getGender());
+            preparedStatement.setString(3, student.getDate().getYear() +"-"+ student.getDate().getMonth() + "-" + student.getDate().getDay());
 
             preparedStatement.execute();
         }
