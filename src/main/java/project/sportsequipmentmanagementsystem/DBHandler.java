@@ -8,7 +8,7 @@ public class DBHandler extends PersistenceHandler{
     public void connectDB(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/SEMSDB", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/semsdb", "root", "");
             if (connection == null){
                 System.out.println("DB Connection Failed");
             }
