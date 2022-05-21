@@ -29,12 +29,24 @@ public class EducationalInstitute {
         studentRecord.removeStudent(rollNumber);
     }
 
+    public void editStudent(String rollNumber, String name, String dateOfBirth){
+        studentRecord.removeStudent(rollNumber);
+        studentRecord.addStudent(rollNumber, name, dateOfBirth);
+    }
+
     public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
         sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
     }
 
+    public ArrayList<SportsTeacher> getAllSportsTeacher(){
+        return sportsTeacherRecord.getAllSportsTeacher();
+    }
+
     public void addSportsTeacher(String id, String name, String dateOfBirth){
         sportsTeacherRecord.addTeacher(id, name,dateOfBirth);
+    }
+    public void removeSportsTeacher(String id){
+        sportsTeacherRecord.removeTeacher(id);
     }
 
     public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {

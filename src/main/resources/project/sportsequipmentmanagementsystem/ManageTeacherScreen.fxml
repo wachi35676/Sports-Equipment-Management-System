@@ -42,12 +42,6 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Text>
-      <TextField layoutX="127.0" layoutY="15.0" prefHeight="31.0" prefWidth="375.0" promptText="Enter Teacher To Search" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="511.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@search-icon.png" />
-         </image>
-      </ImageView>
       <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
@@ -98,27 +92,70 @@
       </Text>
       <Pane layoutX="96.0" layoutY="59.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
          <children>
-            <Text layoutX="24.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of All Sports Teacher">
+            <Text layoutX="24.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Sports Teacher">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Text>
-            <Line endX="550.0" layoutX="124.0" layoutY="58.0" startX="-100.0" />
-            <Rectangle arcHeight="20.0" arcWidth="20.0" height="40.0" layoutX="587.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
-            <Text fill="WHITE" layoutX="631.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="491.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pencil-icon.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="528.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" height="40.0" layoutX="590.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
+            <Text fill="WHITE" layoutX="634.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Text>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="594.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="597.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@add-icon.png" />
                </image>
             </ImageView>
+            <Button fx:id="addButton" layoutX="590.0" layoutY="263.0" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" text="Button" textFill="TRANSPARENT" />
+
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="40.0" layoutX="484.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="85.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="491.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pencil-icon.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="528.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="40.0" layoutX="364.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="96.0" />
+            <Button fx:id="editTeacher" layoutX="484.0" layoutY="263.0" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" text="Button" textFill="TRANSPARENT" />
+            <Text layoutX="397.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="370.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@trash-icon.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="removeTeacher" layoutX="370.0" layoutY="263.0" mnemonicParsing="false" onAction="#removeTeacher" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" text="Button" textFill="TRANSPARENT" />
+            <TableView fx:id="teachersTable" layoutX="24.0" layoutY="318.0" prefHeight="200.0" prefWidth="651.0">
+               <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="157.0" text="ID Number" />
+                  <TableColumn fx:id="nameColumn" prefWidth="296.0" text="Name" />
+                  <TableColumn fx:id="dateOfBirthColumn" prefWidth="197.0" text="Date Of Birth" />
+               </columns>
+            </TableView>
+            <Line endX="550.0" layoutX="124.0" layoutY="58.0" startX="-100.0" />
             <Text layoutX="24.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TeacherID:" />
-            <TextField fx:id="teacherID" layoutX="124.0" layoutY="81.0" />
-            <TextField fx:id="name" layoutX="124.0" layoutY="125.0" />
+            <TextField fx:id="teacherID" layoutX="124.0" layoutY="81.0" prefHeight="31.0" prefWidth="551.0" />
+            <TextField fx:id="name" layoutX="124.0" layoutY="125.0" prefHeight="31.0" prefWidth="551.0" />
             <Text layoutX="24.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-            <TextField fx:id="dateOfBirth" layoutX="124.0" layoutY="169.0" />
+            <TextField fx:id="dateOfBirth" layoutX="124.0" layoutY="169.0" prefHeight="31.0" prefWidth="551.0" />
             <Text layoutX="24.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth:" />
             <Button fx:id="addTeacher" layoutX="587.0" layoutY="8.0" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" />
          </children></Pane>

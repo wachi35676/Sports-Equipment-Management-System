@@ -39,9 +39,7 @@ public class ManageStudentController implements Initializable {
     public TableColumn<Student, String> rollNumberColumn;
     public TableColumn<Student, String> nameColumn;
     public TableColumn<Student, Date> dateOfBirthColumn;
-    ObservableList<Student> studentObservableList = FXCollections.observableArrayList(
-        new Student("2315", "Wasif", new Date("20010817"))
-    );
+    ObservableList<Student> studentObservableList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,7 +89,7 @@ public class ManageStudentController implements Initializable {
     }
 
     public void editStudent(ActionEvent event) throws IOException{
-        //new EducationalInstitute().addStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
+        new EducationalInstitute().editStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
 
         studentObservableList = FXCollections.observableArrayList(getStudentsData());
         studentsTable.setItems(studentObservableList);
