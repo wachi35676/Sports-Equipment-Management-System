@@ -36,4 +36,10 @@ public class SportsTeacher {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    void IssueFine(){
+
+
+
+    }
 }
