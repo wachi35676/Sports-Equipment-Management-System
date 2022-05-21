@@ -56,6 +56,27 @@ public class DBHandler implements PersistenceHandler{
         }
     }
 
+    @Override
+    public ArrayList<SportsTeacher> getAllSportsTeacher() {
+        ArrayList<SportsTeacher> sportsTeachers = new ArrayList<>();
+
+        try{
+            String sql = "select * from sports_teacher";
+            Statement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                //ugly code and bad practice i know plz spare me
+                sportsTeachers.add(new SportsTeacher (resultSet.getString("SportsTeacherID"), resultSet.getString("Name"), new Date (resultSet.getString("Date_Of_Birth"))));
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return sportsTeachers;
+    }
+
     public void addSportTeacher(SportsTeacher sportsTeacher){
         try{
             String sql = "insert into sports_teacher (SportsTeacherID, Name, Date_Of_Birth) values (?,?,?)";
@@ -64,6 +85,21 @@ public class DBHandler implements PersistenceHandler{
             preparedStatement.setString(1, sportsTeacher.getId());
             preparedStatement.setString(2, sportsTeacher.getName());
             preparedStatement.setString(3, sportsTeacher.getDateOfBirth().toString());
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void removeSportsTeacher(String id) {
+        try{
+            String sql = "delete from sports_teacher where SportsTeacherID=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1,id);
 
             preparedStatement.execute();
         }
