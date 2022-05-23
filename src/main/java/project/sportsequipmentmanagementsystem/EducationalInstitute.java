@@ -34,8 +34,20 @@ public class EducationalInstitute {
         studentRecord.addStudent(rollNumber, name, dateOfBirth);
     }
 
-    public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
+    public ArrayList<Equipment> getAllEquipment(){
+        return sportsRoom.getAllEquipment();
+    }
+
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
         sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
+    }
+
+    public void removeEquipment(String equipmentID){
+        sportsRoom.removeEquipment(equipmentID);
+    }
+
+    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        sportsRoom.editEquipment(equipmentID, name, brand, availability, room);
     }
 
     public ArrayList<SportsTeacher> getAllSportsTeacher(){

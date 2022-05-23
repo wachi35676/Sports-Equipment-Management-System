@@ -57,6 +57,21 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
+    public void removeEquipment(String equipmentID) {
+        try{
+            String sql = "delete from equipment where Equipment_ID=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1,equipmentID);
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    @Override
     public ArrayList<SportsTeacher> getAllSportsTeacher() {
         ArrayList<SportsTeacher> sportsTeachers = new ArrayList<>();
 
@@ -142,6 +157,27 @@ public class DBHandler implements PersistenceHandler{
         catch (SQLException e){
             System.out.println(e);
         }
+    }
+
+    @Override
+    public ArrayList<Equipment> getAllEquipments() {
+        ArrayList<Equipment> equipments = new ArrayList<>();
+
+        try{
+            String sql = "select * from equipment";
+            Statement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                //ugly code and bad practice i know plz spare me
+                equipments.add(new Equipment (resultSet.getString("Equipment_ID"), resultSet.getString("Name"), resultSet.getString("Brand_Name"), resultSet.getString("Availability"), resultSet.getString("Room_ID")));
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return equipments;
     }
 
 
