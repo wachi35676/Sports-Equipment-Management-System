@@ -34,7 +34,11 @@ public class EducationalInstitute {
         studentRecord.addStudent(rollNumber, name, dateOfBirth);
     }
 
-    public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
+    public ArrayList<Equipment> getAllEquipment(){
+        return sportsRoom.getAllEquipment();
+    }
+
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
         sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
     }
 

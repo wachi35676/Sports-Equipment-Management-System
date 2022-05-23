@@ -144,5 +144,26 @@ public class DBHandler implements PersistenceHandler{
         }
     }
 
+    @Override
+    public ArrayList<Equipment> getAllEquipments() {
+        ArrayList<Equipment> equipments = new ArrayList<>();
+
+        try{
+            String sql = "select * from equipment";
+            Statement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                //ugly code and bad practice i know plz spare me
+                equipments.add(new Equipment (resultSet.getString("Equipment_ID"), resultSet.getString("Name"), resultSet.getString("Brand_Name"), resultSet.getString("Availability"), resultSet.getString("Room_ID")));
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return equipments;
+    }
+
 
 }

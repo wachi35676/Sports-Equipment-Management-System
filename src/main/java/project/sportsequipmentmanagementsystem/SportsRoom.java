@@ -1,12 +1,18 @@
 package project.sportsequipmentmanagementsystem;
 
+import java.util.ArrayList;
+
 public class SportsRoom {
     private EquipmentRecord equipmentRecord = new EquipmentRecord();
     private EquipmentBorrowRecord equipmentBorrowRecord;
     private SportsTeacher sportsTeacher;
 
-    public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
         equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
+    }
+
+    public ArrayList<Equipment> getAllEquipment(){
+        return equipmentRecord.getAllEquipment();
     }
 
     public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {

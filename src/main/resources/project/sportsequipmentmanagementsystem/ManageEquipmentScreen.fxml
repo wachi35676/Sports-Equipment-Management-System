@@ -14,6 +14,7 @@
       <Rectangle arcHeight="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
       <Rectangle arcHeight="5.0" height="60.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
       <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#5b5b5b" height="52.0" layoutX="679.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="685.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@user_icon.png" />
@@ -42,12 +43,6 @@
             <Font name="Segoe UI Bold" size="15.0" />
          </font>
       </Text>
-      <TextField layoutX="127.0" layoutY="15.0" prefHeight="31.0" prefWidth="375.0" promptText="Enter Equipment To Search" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="511.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@search-icon.png" />
-         </image>
-      </ImageView>
       <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
       <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
@@ -98,33 +93,42 @@
       </Text>
       <Pane layoutX="96.0" layoutY="59.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
          <children>
-            <Text layoutX="24.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of All Equipment">
+            <Text layoutX="24.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Equipment">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Text>
             <Line endX="550.0" layoutX="124.0" layoutY="58.0" startX="-100.0" />
-            <Rectangle arcHeight="20.0" arcWidth="20.0" height="40.0" layoutX="587.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
-            <Text fill="WHITE" layoutX="631.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add">
+            <Rectangle arcHeight="20.0" arcWidth="20.0" height="40.0" layoutX="590.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="85.0" />
+            <Text fill="WHITE" layoutX="634.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Text>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="594.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="597.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@add-icon.png" />
                </image>
             </ImageView>
             <Text layoutX="24.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Equipment ID:" />
-            <TextField fx:id="equipmentID" layoutX="130.0" layoutY="83.0" />
-            <TextField fx:id="name" layoutX="130.0" layoutY="125.0" />
+            <TextField fx:id="equipmentID" layoutX="130.0" layoutY="83.0" prefHeight="31.0" prefWidth="545.0" />
+            <TextField fx:id="name" layoutX="130.0" layoutY="125.0" prefHeight="31.0" prefWidth="545.0" />
             <Text layoutX="24.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-            <TextField fx:id="brandName" layoutX="130.0" layoutY="164.0" />
+            <TextField fx:id="brandName" layoutX="130.0" layoutY="164.0" prefHeight="31.0" prefWidth="545.0" />
             <Text layoutX="24.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name:" />
-            <TextField fx:id="availability" layoutX="130.0" layoutY="206.0" />
+            <TextField fx:id="availability" layoutX="130.0" layoutY="206.0" prefHeight="31.0" prefWidth="545.0" />
             <Text layoutX="24.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability:" />
-            <Button fx:id="addEquipment" layoutX="587.0" layoutY="8.0" mnemonicParsing="false" onAction="#addEquipment" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" />
+            <Button fx:id="addEquipment" layoutX="590.0" layoutY="281.0" mnemonicParsing="false" onAction="#addEquipment" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" />
             <Text layoutX="24.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room ID:" />
-            <TextField fx:id="room" layoutX="130.0" layoutY="246.0" />
+            <TextField fx:id="room" layoutX="130.0" layoutY="246.0" prefHeight="31.0" prefWidth="545.0" />
+            <TableView fx:id="equipmentTable" layoutX="18.0" layoutY="327.0" prefHeight="200.0" prefWidth="657.0">
+              <columns>
+                <TableColumn fx:id="equipmentIdColumn" prefWidth="126.0" text="Equipment ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="127.0" text="Name" />
+                  <TableColumn fx:id="brandNameColumn" prefWidth="145.0" text="Brand Name" />
+                  <TableColumn fx:id="availabilityColumn" prefWidth="125.0" text="Availability" />
+                  <TableColumn fx:id="roomIdColumn" prefWidth="132.0" text="Room ID" />
+              </columns>
+            </TableView>
          </children></Pane>
       <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
       <Text fill="WHITE" layoutX="34.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
