@@ -8,6 +8,10 @@ public class EquipmentRecord {
         new PersistenceFactory().getConnection().addEquipment(equipmentToAdd);
     }
 
+    public void removeEquipment(String equipmentID){
+        new PersistenceFactory().getConnection().removeEquipment(equipmentID);
+    }
+
     public ArrayList<Equipment> getAllEquipment(){
         return new PersistenceFactory().getConnection().getAllEquipments();
     }

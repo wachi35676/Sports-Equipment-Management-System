@@ -42,6 +42,14 @@ public class EducationalInstitute {
         sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
     }
 
+    public void removeEquipment(String equipmentID){
+        sportsRoom.removeEquipment(equipmentID);
+    }
+
+    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        sportsRoom.editEquipment(equipmentID, name, brand, availability, room);
+    }
+
     public ArrayList<SportsTeacher> getAllSportsTeacher(){
         return sportsTeacherRecord.getAllSportsTeacher();
     }

@@ -57,6 +57,21 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
+    public void removeEquipment(String equipmentID) {
+        try{
+            String sql = "delete from equipment where Equipment_ID=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1,equipmentID);
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    @Override
     public ArrayList<SportsTeacher> getAllSportsTeacher() {
         ArrayList<SportsTeacher> sportsTeachers = new ArrayList<>();
 

@@ -129,6 +129,30 @@
                   <TableColumn fx:id="roomIdColumn" prefWidth="132.0" text="Room ID" />
               </columns>
             </TableView>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="40.0" layoutX="496.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="85.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="503.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pencil-icon.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="540.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="editEquipment" layoutX="496.0" layoutY="281.0" mnemonicParsing="false" onAction="#editEquipment" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: none;" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="40.0" layoutX="392.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="96.0" />
+            <Text layoutX="423.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remove">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="395.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@trash-icon.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="removeEquipment" layoutX="392.0" layoutY="281.0" mnemonicParsing="false" onAction="#removeEquipment" prefHeight="40.0" prefWidth="96.0" style="-fx-background-color: none;" />
          </children></Pane>
       <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
       <Text fill="WHITE" layoutX="34.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">

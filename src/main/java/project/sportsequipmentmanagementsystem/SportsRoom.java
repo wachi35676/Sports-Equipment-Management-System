@@ -11,6 +11,15 @@ public class SportsRoom {
         equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
     }
 
+    public void removeEquipment(String equipmentID){
+        equipmentRecord.removeEquipment(equipmentID);
+    }
+
+    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        equipmentRecord.removeEquipment(equipmentID);
+        equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
+    }
+
     public ArrayList<Equipment> getAllEquipment(){
         return equipmentRecord.getAllEquipment();
     }

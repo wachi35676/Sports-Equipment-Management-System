@@ -87,4 +87,18 @@ public class ManageEquipmentController implements Initializable {
         equipmentObservableList = FXCollections.observableArrayList(getStudentsData());
         equipmentTable.setItems(equipmentObservableList);
     }
+
+    public void editEquipment(ActionEvent event) throws IOException{
+        new EducationalInstitute().editEquipment(equipmentID.getText(), name.getText(), brandName.getText(), availability.getText(), room.getText());
+
+        equipmentObservableList = FXCollections.observableArrayList(getStudentsData());
+        equipmentTable.setItems(equipmentObservableList);
+    }
+
+    public void removeEquipment(ActionEvent event) throws IOException{
+        new EducationalInstitute().removeEquipment(equipmentID.getText());
+
+        equipmentObservableList = FXCollections.observableArrayList(getStudentsData());
+        equipmentTable.setItems(equipmentObservableList);
+    }
 }
