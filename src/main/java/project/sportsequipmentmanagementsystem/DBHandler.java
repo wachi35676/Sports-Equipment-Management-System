@@ -126,7 +126,7 @@ public class DBHandler implements PersistenceHandler{
     @Override
     public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
         try{
-            String sql = "insert into issuance_record (equipmentID, studentID, Date) values (?,?,?)";
+            String sql = "insert into issuance_record (Equipment_ID, Student_ID, Date_Issued) values (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, equipmentID);

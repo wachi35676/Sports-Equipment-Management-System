@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SportsRoom {
     private EquipmentRecord equipmentRecord = new EquipmentRecord();
-    private EquipmentBorrowRecord equipmentBorrowRecord;
+    private EquipmentBorrowRecord equipmentBorrowRecord = new EquipmentBorrowRecord();
     private SportsTeacher sportsTeacher;
 
     public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
