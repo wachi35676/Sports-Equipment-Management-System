@@ -124,6 +124,23 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
+    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+        try{
+            String sql = "insert into issuance_record (equipmentID, studentID, Date) values (?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, equipmentID);
+            preparedStatement.setString(2, studentID);
+            preparedStatement.setString(3, Date.toString());
+
+            preparedStatement.execute();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
+
+    @Override
     public ArrayList<Student> getAllStudents() {
         ArrayList<Student> students = new ArrayList<>();
 

@@ -24,11 +24,10 @@ public class SportsRoom {
         return equipmentRecord.getAllEquipment();
     }
 
-    public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {
-        //Create a borrowed equipment record here
-
-        return null;
+    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+        equipmentBorrowRecord.processBorrowRequest(equipmentID,studentID,Date);
     }
+
 
     public Equipment [] checkIssuedEquipment(String rollNumber) {
 //        Search for the issued equipment according to the student's roll number and return a list of issued equipment
