@@ -12,4 +12,5 @@ public interface PersistenceHandler {
     ArrayList<SportsTeacher> getAllSportsTeacher();
     void addSportTeacher(SportsTeacher sportsTeacher);
     void removeSportsTeacher(String id);
+    void processBorrowRequest(String equipmentID, String studentID, Date Date);
 }

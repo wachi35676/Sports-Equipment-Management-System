@@ -53,27 +53,7 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="33.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@payFine_icon.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="33.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@settings_icon.png" />
-            </image>
-        </ImageView>
         <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="540.0" layoutX="96.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="704.0" />
-        <Text fill="WHITE" layoutX="26.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Fine">
-            <font>
-                <Font name="Segoe UI" size="12.0" />
-            </font>
-        </Text>
-        <Text fill="WHITE" layoutX="27.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
-            <font>
-                <Font name="Segoe UI" size="12.0" />
-            </font>
-        </Text>
         <Text fill="WHITE" layoutX="28.0" layoutY="574.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
             <font>
                 <Font name="Segoe UI" size="12.0" />
@@ -118,7 +98,6 @@
                 </Pane>
             </children></AnchorPane>
       <Button fx:id="borrowEquipment" layoutX="19.0" layoutY="160.0" mnemonicParsing="false" onAction="#borrowEquipment" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
-      <Button fx:id="payFine" layoutX="21.0" layoutY="285.0" mnemonicParsing="false" onAction="#payFine" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
       <Button fx:id="logOut" layoutX="17.0" layoutY="511.0" mnemonicParsing="false" onAction="#goToWelcomeScreen" prefHeight="70.0" prefWidth="65.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
     </children>
 </AnchorPane>
