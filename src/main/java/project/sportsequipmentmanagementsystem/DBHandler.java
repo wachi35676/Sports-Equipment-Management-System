@@ -139,7 +139,8 @@ public class DBHandler implements PersistenceHandler{
             System.out.println(e);
         }
     }
-    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+    @Override
+    public void processBorrowRequest(String equipmentID, String studentID, project.sportsequipmentmanagementsystem.Date Date) {
         try{
             String sql = "insert into issuance_record (Equipment_ID, Student_ID, Date_Issued) values (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
