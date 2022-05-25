@@ -1,7 +1,7 @@
 package project.sportsequipmentmanagementsystem;
 
 public class Equipment {
-    private int equipmentID;
+    private String equipmentID;
     private String name;
     private String brand;
     private String availability;
@@ -9,7 +9,7 @@ public class Equipment {
 
     public Equipment(){}
 
-    public Equipment(int equipmentID, String name, String brand, String availability, String room) {
+    public Equipment(String equipmentID, String name, String brand, String availability, String room) {
         this.equipmentID = equipmentID;
         this.name = name;
         this.brand = brand;
@@ -17,11 +17,11 @@ public class Equipment {
         this.room = room;
     }
 
-    public Integer getEquipmentID() {
+    public String getEquipmentID() {
         return equipmentID;
     }
 
-    public void setEquipmentID(int equipmentID) {
+    public void setEquipmentID(String equipmentID) {
         this.equipmentID = equipmentID;
     }
 

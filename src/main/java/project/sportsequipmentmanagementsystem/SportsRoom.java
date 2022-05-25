@@ -1,19 +1,33 @@
 package project.sportsequipmentmanagementsystem;
 
+import java.util.ArrayList;
+
 public class SportsRoom {
     private EquipmentRecord equipmentRecord = new EquipmentRecord();
-    private EquipmentBorrowRecord equipmentBorrowRecord;
+    private EquipmentBorrowRecord equipmentBorrowRecord = new EquipmentBorrowRecord();
     private SportsTeacher sportsTeacher;
 
-    public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
         equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
     }
 
-    public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {
-        //Create a borrowed equipment record here
-
-        return null;
+    public void removeEquipment(String equipmentID){
+        equipmentRecord.removeEquipment(equipmentID);
     }
+
+    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        equipmentRecord.removeEquipment(equipmentID);
+        equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
+    }
+
+    public ArrayList<Equipment> getAllEquipment(){
+        return equipmentRecord.getAllEquipment();
+    }
+
+    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+        equipmentBorrowRecord.processBorrowRequest(equipmentID,studentID,Date);
+    }
+
 
     public Equipment [] checkIssuedEquipment(String rollNumber) {
 //        Search for the issued equipment according to the student's roll number and return a list of issued equipment

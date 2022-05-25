@@ -8,14 +8,8 @@ public class EducationalInstitute {
     private SportsTeacherRecord sportsTeacherRecord = new SportsTeacherRecord();
     private SportsRoom sportsRoom = new SportsRoom();
 
-    public EducationalInstitute(){}
 
-    public EducationalInstitute(StudentRecord studentRecord, PrincipalRecord principalRecord, SportsTeacherRecord sportsTeacherRecord, SportsRoom sportsRoom) {
-        this.studentRecord = studentRecord;
-        this.principalRecord = principalRecord;
-        this.sportsTeacherRecord = sportsTeacherRecord;
-        this.sportsRoom = sportsRoom;
-    }
+    public EducationalInstitute(){}
 
     public ArrayList<Student> getAllStudentRecords(){
         return studentRecord.getAllStudentRecords();
@@ -34,8 +28,20 @@ public class EducationalInstitute {
         studentRecord.addStudent(rollNumber, name, dateOfBirth);
     }
 
-    public void addEquipment(int equipmentID, String name, String brand, String availability, String room){
+    public ArrayList<Equipment> getAllEquipment(){
+        return sportsRoom.getAllEquipment();
+    }
+
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
         sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
+    }
+
+    public void removeEquipment(String equipmentID){
+        sportsRoom.removeEquipment(equipmentID);
+    }
+
+    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        sportsRoom.editEquipment(equipmentID, name, brand, availability, room);
     }
 
     public ArrayList<SportsTeacher> getAllSportsTeacher(){
@@ -49,8 +55,8 @@ public class EducationalInstitute {
         sportsTeacherRecord.removeTeacher(id);
     }
 
-    public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {
-        return sportsRoom.processBorrowRequest(rollNumber,equipmentID);
+    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+         sportsRoom.processBorrowRequest(equipmentID,studentID,Date);
     }
 
     public Equipment [] checkIssuedEquipment(String rollNumber) {
@@ -61,4 +67,17 @@ public class EducationalInstitute {
         return sportsRoom.returnIssuedEquipment(rollNumber, equipmentID);
     }
 
+    public void IssueFine(int rollno,float amount){
+       sportsTeacherRecord.issueFine(rollno,amount);
+    }
+
+    public ArrayList<EquipmentRequests> getIssuedDetails(){
+       return sportsTeacherRecord.getEquipmentBorrowStatus();
+    }
+    public void ReturnEquipment(int rollNo, String date, int equipmentID, float amount){
+        sportsTeacherRecord.equipmentReturn(rollNo,date,equipmentID,amount);
+    }
+    public ArrayList<Defaulter> getDefaulters(){
+        return sportsTeacherRecord.getDefaultersList();
+    }
 }

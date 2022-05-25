@@ -62,12 +62,6 @@ public class Main extends Application {
         stage.show();
     }
 
-    public void changeSceneToPayFine(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("PayFineStudentScreen.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
-        stage.show();
-    }
-
     public void changeSceneToPrincipalMenu(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainPrincipalScreen.fxml"));
         stage.setScene(new Scene(fxmlLoader.load(), 800, 600));
