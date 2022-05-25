@@ -15,4 +15,5 @@ public class EquipmentRecord {
     public ArrayList<Equipment> getAllEquipment(){
         return new PersistenceFactory().getConnection().getAllEquipments();
     }
+
 }

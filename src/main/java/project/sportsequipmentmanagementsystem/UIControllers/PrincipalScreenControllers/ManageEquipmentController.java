@@ -31,7 +31,8 @@ public class ManageEquipmentController implements Initializable {
     public TextField availability = new TextField();
     public TextField room = new TextField();
     public Button addEquipment = new Button();
-    public TableView <Equipment> equipmentTable = new TableView<>();
+
+    public TableView  <Equipment> equipmentTable = new TableView<>();
     public TableColumn<Equipment, String> equipmentIdColumn;
     public TableColumn<Equipment, String> nameColumn;
     public TableColumn<Equipment, String> brandNameColumn;

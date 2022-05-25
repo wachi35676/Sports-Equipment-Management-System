@@ -8,14 +8,8 @@ public class EducationalInstitute {
     private SportsTeacherRecord sportsTeacherRecord = new SportsTeacherRecord();
     private SportsRoom sportsRoom = new SportsRoom();
 
-    public EducationalInstitute(){}
 
-    public EducationalInstitute(StudentRecord studentRecord, PrincipalRecord principalRecord, SportsTeacherRecord sportsTeacherRecord, SportsRoom sportsRoom) {
-        this.studentRecord = studentRecord;
-        this.principalRecord = principalRecord;
-        this.sportsTeacherRecord = sportsTeacherRecord;
-        this.sportsRoom = sportsRoom;
-    }
+    public EducationalInstitute(){}
 
     public ArrayList<Student> getAllStudentRecords(){
         return studentRecord.getAllStudentRecords();
@@ -73,4 +67,17 @@ public class EducationalInstitute {
         return sportsRoom.returnIssuedEquipment(rollNumber, equipmentID);
     }
 
+    public void IssueFine(int rollno,float amount){
+       sportsTeacherRecord.issueFine(rollno,amount);
+    }
+
+    public ArrayList<EquipmentRequests> getIssuedDetails(){
+       return sportsTeacherRecord.getEquipmentBorrowStatus();
+    }
+    public void ReturnEquipment(int rollNo, String date, int equipmentID, float amount){
+        sportsTeacherRecord.equipmentReturn(rollNo,date,equipmentID,amount);
+    }
+    public ArrayList<Defaulter> getDefaulters(){
+        return sportsTeacherRecord.getDefaultersList();
+    }
 }

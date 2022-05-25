@@ -29,4 +29,24 @@ public class SportsTeacherRecord {
 
         return persistenceHandler.getAllSportsTeacher();
     }
+    public void issueFine(int rollNo,float fineAmount){
+        PersistenceFactory persistenceFactory = new PersistenceFactory();
+        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        persistenceHandler.issueFine(rollNo,fineAmount);
+    }
+    public ArrayList<EquipmentRequests> getEquipmentBorrowStatus(){
+        PersistenceFactory persistenceFactory = new PersistenceFactory();
+        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        return persistenceHandler.checkIssuedEquipmentList();
+    }
+    public void equipmentReturn(int rollNo, String date, int equipmentID, float amount){
+        PersistenceFactory persistenceFactory = new PersistenceFactory();
+        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        persistenceHandler.EquipmentReturned(rollNo,date,equipmentID,amount);
+    }
+    public ArrayList<Defaulter> getDefaultersList(){
+        PersistenceFactory persistenceFactory = new PersistenceFactory();
+        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        return persistenceHandler.getDefaulters();
+    }
 }

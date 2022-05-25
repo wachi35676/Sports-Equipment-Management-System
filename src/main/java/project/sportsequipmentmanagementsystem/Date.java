@@ -38,6 +38,9 @@ public class Date {
     public void setYear(int year) {
         this.year = year;
     }
+    public String convert(){
+        return getYear()+"/"+getMonth()+"/"+getDay();
+    }
 
     @Override
     public String toString() {
