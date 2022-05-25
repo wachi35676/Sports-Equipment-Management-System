@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Bloom?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.StudentScreenControllers.checkIssuedEquipmentController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController.checkIssuedEquipmentController">
    <children>
       <AnchorPane prefHeight="611.0" prefWidth="810.0" style="-fx-background-color: black;">
          <children>
@@ -117,29 +114,18 @@
                         <Image url="@black-image.png" />
                      </image>
                   </ImageView>
-                  <TableView layoutX="87.0" layoutY="39.0" prefHeight="277.0" prefWidth="531.0">
+                  <TableView fx:id="equipmentBorrowRecordTableView" layoutX="51.0" layoutY="39.0" prefHeight="429.0" prefWidth="608.0">
                      <columns>
-                        <TableColumn prefWidth="115.0" text="StudentID" />
-                        <TableColumn prefWidth="415.0" style="-fx-background-color: GREY;" text="IssuedEquipments" />
+                        <TableColumn fx:id="StudentIDcolumn" prefWidth="115.0" text="StudentID" />
+                        <TableColumn fx:id="IssuedEquipmentCol" prefWidth="149.0" style="-fx-background-color: WHITE;" text="IssuedEquipment" />
+                        <TableColumn fx:id="DateOfIssueCol" prefWidth="131.0" text="DateOfIssue" />
+                        <TableColumn fx:id="EquipmentIDCol" prefWidth="135.0" text="EquipmentID" />
                      </columns>
                   </TableView>
-                  <Button layoutX="252.0" layoutY="443.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Show Issued Details" textFill="#d3d3d3">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <effect>
-                        <Bloom threshold="0.0" />
-                     </effect>
-                  </Button>
-                  <TextField layoutX="238.0" layoutY="381.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
-                     <effect>
-                        <DropShadow spread="0.91" />
-                     </effect>
-                  </TextField>
                </children>
             </Pane>
             <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
-            <ImageView fx:id="IssueFine" fitHeight="30.0" fitWidth="30.0" layoutX="32.0" layoutY="255.0" onMouseClicked="#IssueFining" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="issuefine1" fitHeight="30.0" fitWidth="30.0" layoutX="32.0" layoutY="255.0" onMouseClicked="#IssueFining" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@whistle-icon.png" />
                </image>

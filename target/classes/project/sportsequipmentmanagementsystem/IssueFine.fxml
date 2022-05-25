@@ -16,7 +16,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController.IssueFineController">
    <children>
       <AnchorPane prefHeight="611.0" prefWidth="810.0">
@@ -26,11 +25,6 @@
                   <Rectangle arcHeight="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
                   <Rectangle arcHeight="5.0" height="60.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
                   <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#5b5b5b" height="52.0" layoutX="679.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-                  <ImageView fx:id="equipment" fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" onMouseClicked="#CheckEquipment" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@user_icon.png" />
-                     </image>
-                  </ImageView>
                   <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#5b5b5b" height="92.0" layoutX="-4.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
                   <ImageView fx:id="ManageEQBtn" fitHeight="30.0" fitWidth="30.0" layoutX="33.0" layoutY="76.0" onMouseClicked="#manageEquipment" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -63,7 +57,7 @@
                   <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                   <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                   <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <ImageView fx:id="equipment" fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" onMouseClicked="#CheckEquipment" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="equipement" fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" onMouseClicked="#CheckEquipment" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@whistle-icon.png" />
                      </image>
@@ -120,13 +114,15 @@
                               <Image url="@black-image.png" />
                            </image>
                         </ImageView>
-                        <TableView layoutX="87.0" layoutY="39.0" prefHeight="277.0" prefWidth="531.0">
+                        <TableView fx:id="IssueFineTable" layoutX="87.0" layoutY="39.0" prefHeight="277.0" prefWidth="531.0">
                            <columns>
-                              <TableColumn prefWidth="115.0" text="StudentID" />
-                              <TableColumn prefWidth="415.0" style="-fx-background-color: GREY;" text="TimePassedForEquipmentReturn" />
+                              <TableColumn fx:id="StudentIDcol" prefWidth="115.0" text="StudentID" />
+                              <TableColumn fx:id="EquipmentNamecol" prefWidth="130.0" style="-fx-background-color: White;" text="EquipmentName" />
+                              <TableColumn fx:id="EquipmentIDcol" prefWidth="142.0" text="EquipmentID" />
+                              <TableColumn fx:id="DaysCol" prefWidth="143.0" text="TimePassed(Days)" />
                            </columns>
                         </TableView>
-                        <Button layoutX="253.0" layoutY="496.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
+                        <Button fx:id="issuefinebtn" layoutX="253.0" layoutY="496.0" mnemonicParsing="false" onAction="#IssueFineToStudent" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -134,12 +130,12 @@
                               <Bloom threshold="0.0" />
                            </effect>
                         </Button>
-                        <TextField layoutX="238.0" layoutY="381.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
+                        <TextField fx:id="rollnotxt" layoutX="238.0" layoutY="381.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
                            <effect>
                               <DropShadow spread="0.91" />
                            </effect>
                         </TextField>
-                        <TextField layoutX="239.0" layoutY="443.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter Fine Amount" style="-fx-background-color: WHITE;">
+                        <TextField fx:id="amounttxt" layoutX="239.0" layoutY="443.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter Fine Amount" style="-fx-background-color: WHITE;">
                            <effect>
                               <DropShadow spread="0.91" />
                            </effect>

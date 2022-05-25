@@ -8,6 +8,7 @@ public class EducationalInstitute {
     private SportsTeacherRecord sportsTeacherRecord = new SportsTeacherRecord();
     private SportsRoom sportsRoom = new SportsRoom();
 
+
     public EducationalInstitute(){}
 
     public EducationalInstitute(StudentRecord studentRecord, PrincipalRecord principalRecord, SportsTeacherRecord sportsTeacherRecord, SportsRoom sportsRoom) {
@@ -73,4 +74,17 @@ public class EducationalInstitute {
         return sportsRoom.returnIssuedEquipment(rollNumber, equipmentID);
     }
 
+    public void IssueFine(int rollno,float amount){
+       sportsTeacherRecord.issueFine(rollno,amount);
+    }
+
+    public ArrayList<EquipmentRequests> getIssuedDetails(){
+       return sportsTeacherRecord.getEquipmentBorrowStatus();
+    }
+    public void ReturnEquipment(int rollNo, String date, int equipmentID, float amount){
+        sportsTeacherRecord.equipmentReturn(rollNo,date,equipmentID,amount);
+    }
+    public ArrayList<StudentReturnTime> getDefaulters(){
+        return sportsTeacherRecord.getDefaultersList();
+    }
 }

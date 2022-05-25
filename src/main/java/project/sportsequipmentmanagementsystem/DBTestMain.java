@@ -8,8 +8,10 @@ import java.util.GregorianCalendar;
 
 public class DBTestMain {
     public static void main(String[] args) {
-        GregorianCalendar calendar = new GregorianCalendar(2001, Calendar.AUGUST, 17);
 
-        System.out.println(calendar.MONTH);
+        DBHandler DBHANDLER =  new DBHandler();
+        DBHANDLER.connectDB();
+        DBHANDLER.getDefaulters();
+
     }
 }

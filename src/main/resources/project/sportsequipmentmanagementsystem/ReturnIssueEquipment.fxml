@@ -25,7 +25,7 @@
                         <Rectangle arcHeight="5.0" height="600.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
                         <Rectangle arcHeight="5.0" height="60.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
                         <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#5b5b5b" height="52.0" layoutX="679.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-                        <ImageView fx:id="equipement" fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" onMouseClicked="#CheckEquipment" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@user_icon.png" />
                            </image>
@@ -119,7 +119,7 @@
                                     <Image url="@black-image.png" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="248.0" layoutY="411.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
+                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="411.0" mnemonicParsing="false" onAction="#ReturnEquipement" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
@@ -127,22 +127,22 @@
                                     <Bloom threshold="0.0" />
                                  </effect>
                               </Button>
-                              <TextField layoutX="233.0" layoutY="167.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="RollNoTxtF" layoutX="233.0" layoutY="167.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField layoutX="232.0" layoutY="231.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Equipement ID" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="EquipmentIDtxtF" layoutX="232.0" layoutY="231.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Equipement ID" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField layoutX="232.0" layoutY="352.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter fine amount on damage" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="AmountOnDamage" layoutX="232.0" layoutY="352.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter fine amount on damage" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField layoutX="232.0" layoutY="288.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="DateOfReturn" layoutX="232.0" layoutY="288.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
@@ -150,7 +150,7 @@
                            </children>
                         </Pane>
                         <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="32.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="Fine" fitHeight="30.0" fitWidth="30.0" layoutX="32.0" layoutY="255.0" onMouseClicked="#IssueFining" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@whistle-icon.png" />
                            </image>
