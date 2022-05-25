@@ -210,12 +210,20 @@ public class DBHandler implements PersistenceHandler{
                 String DateReturned =  resultSet.getString("issuance_record.Date_Returned");
 
                 project.sportsequipmentmanagementsystem.Date issueDate = new project.sportsequipmentmanagementsystem.Date(DateIssued);
-                project.sportsequipmentmanagementsystem.Date returnDate = new project.sportsequipmentmanagementsystem.Date(DateReturned);
 
-                Date issuedDate = sdf.parse(issueDate.convert());
-                Date returnedDate = sdf.parse( returnDate.convert());
+                long diff;
 
-                long diff = returnedDate.getTime() - issuedDate.getTime();
+                if (DateReturned == null){
+                    diff = 1;
+                }
+                else {
+                    project.sportsequipmentmanagementsystem.Date returnDate = new project.sportsequipmentmanagementsystem.Date(DateReturned);
+                    Date issuedDate = sdf.parse(issueDate.convert());
+                    Date returnedDate = sdf.parse( returnDate.convert());
+
+                    diff = returnedDate.getTime() - issuedDate.getTime();
+                }
+
                 TimeUnit time = TimeUnit.DAYS;
                 double difference = time.convert(diff, TimeUnit.MILLISECONDS);
 

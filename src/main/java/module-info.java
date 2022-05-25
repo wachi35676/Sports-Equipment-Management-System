@@ -11,6 +11,7 @@ module project.sportsequipmentmanagementsystem {
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
     requires java.sql;
+    requires mysql.connector;
 
     opens project.sportsequipmentmanagementsystem to javafx.fxml;
     exports project.sportsequipmentmanagementsystem;
