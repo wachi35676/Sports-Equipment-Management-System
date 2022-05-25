@@ -57,7 +57,7 @@
                   <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                   <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                   <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-                  <ImageView fx:id="equipement" fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" onMouseClicked="#CheckEquipment" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="equipment" fitHeight="30.0" fitWidth="30.0" layoutX="29.0" layoutY="172.0" onMouseClicked="#CheckEquipment" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@whistle-icon.png" />
                      </image>
@@ -122,7 +122,7 @@
                               <TableColumn fx:id="DaysCol" prefWidth="143.0" text="TimePassed(Days)" />
                            </columns>
                         </TableView>
-                        <Button fx:id="issuefinebtn" layoutX="253.0" layoutY="496.0" mnemonicParsing="false" onAction="#IssueFineToStudent" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
+                        <Button fx:id="issueFineButton" layoutX="253.0" layoutY="496.0" mnemonicParsing="false" onAction="#IssueFineToStudent" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -130,12 +130,12 @@
                               <Bloom threshold="0.0" />
                            </effect>
                         </Button>
-                        <TextField fx:id="rollnotxt" layoutX="238.0" layoutY="381.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
+                        <TextField fx:id="rollNoTextField" layoutX="238.0" layoutY="381.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
                            <effect>
                               <DropShadow spread="0.91" />
                            </effect>
                         </TextField>
-                        <TextField fx:id="amounttxt" layoutX="239.0" layoutY="443.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter Fine Amount" style="-fx-background-color: WHITE;">
+                        <TextField fx:id="amountTextField" layoutX="239.0" layoutY="443.0" prefHeight="31.0" prefWidth="209.0" promptText="Enter Fine Amount" style="-fx-background-color: WHITE;">
                            <effect>
                               <DropShadow spread="0.91" />
                            </effect>

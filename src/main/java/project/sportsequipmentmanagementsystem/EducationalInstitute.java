@@ -11,13 +11,6 @@ public class EducationalInstitute {
 
     public EducationalInstitute(){}
 
-    public EducationalInstitute(StudentRecord studentRecord, PrincipalRecord principalRecord, SportsTeacherRecord sportsTeacherRecord, SportsRoom sportsRoom) {
-        this.studentRecord = studentRecord;
-        this.principalRecord = principalRecord;
-        this.sportsTeacherRecord = sportsTeacherRecord;
-        this.sportsRoom = sportsRoom;
-    }
-
     public ArrayList<Student> getAllStudentRecords(){
         return studentRecord.getAllStudentRecords();
     }
@@ -84,7 +77,7 @@ public class EducationalInstitute {
     public void ReturnEquipment(int rollNo, String date, int equipmentID, float amount){
         sportsTeacherRecord.equipmentReturn(rollNo,date,equipmentID,amount);
     }
-    public ArrayList<StudentReturnTime> getDefaulters(){
+    public ArrayList<Defaulter> getDefaulters(){
         return sportsTeacherRecord.getDefaultersList();
     }
 }

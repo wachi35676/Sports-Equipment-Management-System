@@ -15,5 +15,5 @@ public interface PersistenceHandler {
     void  issueFine(int rollno,float amount);
     ArrayList<EquipmentRequests> checkIssuedEquipmentList();
     void EquipmentReturned(int rollNo,String date,int equipmentID,float amount);
-    ArrayList<StudentReturnTime> getDefaulters();
+    ArrayList<Defaulter> getDefaulters();
 }

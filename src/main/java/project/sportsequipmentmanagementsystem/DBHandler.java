@@ -180,8 +180,8 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
-    public ArrayList<StudentReturnTime> getDefaulters() {
-        ArrayList<StudentReturnTime> defaulters = new ArrayList<>();
+    public ArrayList<Defaulter> getDefaulters() {
+        ArrayList<Defaulter> defaulters = new ArrayList<>();
         try{
             String sql = "SELECT issuance_record.Student_ID,equipment.Name,issuance_record.Equipment_ID,issuance_record.Date_Issued,issuance_record.Date_Returned FROM issuance_record INNER JOIN equipment ON equipment.Equipment_ID=issuance_record.Equipment_ID";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -189,21 +189,28 @@ public class DBHandler implements PersistenceHandler{
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
 
             while(resultSet.next()){
-                String StudentID = resultSet.getString("Student_ID");
-                String EquipmentName= resultSet.getString("Name");
-                String equipmentID = resultSet.getString("Equipment_ID");
-                String DateIssued =   resultSet.getString("Date_Issued");
-                String DateReturned =  resultSet.getString("Date_Returned");
-                project.sportsequipmentmanagementsystem.Date Issueddate = new project.sportsequipmentmanagementsystem.Date(DateIssued);
-                project.sportsequipmentmanagementsystem.Date ReturnDate = new project.sportsequipmentmanagementsystem.Date(DateReturned);
-                Date issuedDate = sdf.parse(Issueddate.convert());
-                Date returndatee = sdf.parse( ReturnDate.convert());
-                long diff = returndatee.getTime() - issuedDate.getTime();
+                String StudentID = resultSet.getString("issuance_record.Student_ID");
+                String EquipmentName= resultSet.getString("equipment.Name");
+                String equipmentID = resultSet.getString("issuance_record.Date_Issued");
+                String DateIssued =   resultSet.getString("issuance_record.Date_Issued");
+                String DateReturned =  resultSet.getString("issuance_record.Date_Returned");
+
+                project.sportsequipmentmanagementsystem.Date issueDate = new project.sportsequipmentmanagementsystem.Date(DateIssued);
+                project.sportsequipmentmanagementsystem.Date returnDate = new project.sportsequipmentmanagementsystem.Date(DateReturned);
+
+                Date issuedDate = sdf.parse(issueDate.convert());
+                Date returnedDate = sdf.parse( returnDate.convert());
+
+                long diff = returnedDate.getTime() - issuedDate.getTime();
                 TimeUnit time = TimeUnit.DAYS;
-                double diffrence = time.convert(diff, TimeUnit.MILLISECONDS);
-                System.out.println("The difference in days is : "+diffrence);
-                String timePassed = Double.toString(diffrence);
-                defaulters.add(new StudentReturnTime(StudentID,EquipmentName,equipmentID,timePassed));
+                double difference = time.convert(diff, TimeUnit.MILLISECONDS);
+
+                System.out.println("The difference in days is : "+difference);
+                String timePassed = Double.toString(difference);
+
+                Defaulter defaulter = new Defaulter(StudentID,EquipmentName,equipmentID,timePassed);
+
+                defaulters.add(defaulter);
             }
         }catch (Exception e){
             System.out.println(e);
