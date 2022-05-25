@@ -55,8 +55,8 @@ public class EducationalInstitute {
         sportsTeacherRecord.removeTeacher(id);
     }
 
-    public EquipmentBorrowRecord processBorrowRequest(String rollNumber, String [] equipmentID) {
-        return sportsRoom.processBorrowRequest(rollNumber,equipmentID);
+    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+         sportsRoom.processBorrowRequest(equipmentID,studentID,Date);
     }
 
     public Equipment [] checkIssuedEquipment(String rollNumber) {

@@ -129,11 +129,24 @@ public class DBHandler implements PersistenceHandler{
 
     @Override
     public void issueFine(int rollno, float amount) {
-        try{
+        try {
             String sql = "update issuance_record set Fine=? where Student_ID=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setFloat(1,amount);
-            preparedStatement.setInt(2,rollno);
+            preparedStatement.setFloat(1, amount);
+            preparedStatement.setInt(2, rollno);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
+        try{
+            String sql = "insert into issuance_record (Equipment_ID, Student_ID, Date_Issued) values (?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, equipmentID);
+            preparedStatement.setString(2, studentID);
+            preparedStatement.setString(3, Date.toString());
             preparedStatement.execute();
         }
         catch (SQLException e){
