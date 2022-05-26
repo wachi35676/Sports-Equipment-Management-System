@@ -44,9 +44,4 @@ public class SportsTeacherRecord {
         PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
         persistenceHandler.EquipmentReturned(rollNo,date,equipmentID,amount);
     }
-    public ArrayList<Defaulter> getDefaultersList(){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
-        return persistenceHandler.getDefaulters();
-    }
 }

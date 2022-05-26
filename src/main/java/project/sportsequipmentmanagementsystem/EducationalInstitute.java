@@ -78,6 +78,6 @@ public class EducationalInstitute {
         sportsTeacherRecord.equipmentReturn(rollNo,date,equipmentID,amount);
     }
     public ArrayList<Defaulter> getDefaulters(){
-        return sportsTeacherRecord.getDefaultersList();
+        return sportsRoom.getDefaultersList();
     }
 }

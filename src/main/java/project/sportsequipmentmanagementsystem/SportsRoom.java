@@ -3,25 +3,25 @@ package project.sportsequipmentmanagementsystem;
 import java.util.ArrayList;
 
 public class SportsRoom {
-    private EquipmentRecord equipmentRecord = new EquipmentRecord();
+    private Rack rack = new Rack();
     private EquipmentBorrowRecord equipmentBorrowRecord = new EquipmentBorrowRecord();
     private SportsTeacher sportsTeacher;
 
     public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
-        equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
+        rack.addEquipment(equipmentID, name, brand, availability, room);
     }
 
     public void removeEquipment(String equipmentID){
-        equipmentRecord.removeEquipment(equipmentID);
+        rack.removeEquipment(equipmentID);
     }
 
     public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
-        equipmentRecord.removeEquipment(equipmentID);
-        equipmentRecord.addEquipment(equipmentID, name, brand, availability, room);
+        rack.removeEquipment(equipmentID);
+        rack.addEquipment(equipmentID, name, brand, availability, room);
     }
 
     public ArrayList<Equipment> getAllEquipment(){
-        return equipmentRecord.getAllEquipment();
+        return rack.getAllEquipment();
     }
 
     public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
@@ -47,5 +47,12 @@ public class SportsRoom {
         //In the DB too
         //return tempRecord;
         return null;
+    }
+
+
+    public ArrayList<Defaulter> getDefaultersList(){
+        PersistenceFactory persistenceFactory = new PersistenceFactory();
+        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        return persistenceHandler.getDefaulters();
     }
 }
