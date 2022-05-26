@@ -1,4 +1,6 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.Student;
+
+import project.sportsequipmentmanagementsystem.Date;
 
 public class Student {
     private String id;

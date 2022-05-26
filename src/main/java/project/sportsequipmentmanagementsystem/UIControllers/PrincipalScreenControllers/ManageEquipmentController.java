@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.*;
+import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,4 +1,6 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.SportsTeacher;
+
+import project.sportsequipmentmanagementsystem.Date;
 
 public class SportsTeacher {
     private String id;

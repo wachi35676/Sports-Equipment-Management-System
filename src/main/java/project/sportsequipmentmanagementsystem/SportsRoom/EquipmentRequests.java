@@ -1,4 +1,6 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.SportsRoom;
+
+import project.sportsequipmentmanagementsystem.Date;
 
 public class EquipmentRequests {
     String StudentID;

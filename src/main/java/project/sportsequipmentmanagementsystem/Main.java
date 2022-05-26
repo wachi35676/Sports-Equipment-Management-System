@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import project.sportsequipmentmanagementsystem.persistence.DBHandler;
+import project.sportsequipmentmanagementsystem.persistence.PersistenceFactory;
 
 import java.io.IOException;
 
@@ -22,6 +24,7 @@ public class Main extends Application {
         dbHandler.connectDB();
 
         PersistenceFactory.setConnection(dbHandler);
+
         launch();
     }
 

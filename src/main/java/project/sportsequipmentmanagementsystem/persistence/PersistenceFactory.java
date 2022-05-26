@@ -1,4 +1,4 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.persistence;
 
 public class PersistenceFactory {
     private static PersistenceHandler persistenceHandler;

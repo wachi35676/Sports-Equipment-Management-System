@@ -1,4 +1,4 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.Principal;
 
 public class PrincipalRecord {
     private Principal principal;

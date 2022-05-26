@@ -1,4 +1,11 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.persistence;
+
+import project.sportsequipmentmanagementsystem.*;
+import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
+import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
+import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
+import project.sportsequipmentmanagementsystem.Student.Student;
 
 import java.util.ArrayList;
 

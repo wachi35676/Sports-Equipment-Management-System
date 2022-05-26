@@ -1,5 +1,15 @@
 package project.sportsequipmentmanagementsystem;
 
+import project.sportsequipmentmanagementsystem.Principal.PrincipalRecord;
+import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
+import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
+import project.sportsequipmentmanagementsystem.SportsRoom.SportsRoom;
+import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
+import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacherRecord;
+import project.sportsequipmentmanagementsystem.Student.Student;
+import project.sportsequipmentmanagementsystem.Student.StudentRecord;
+
 import java.util.ArrayList;
 
 public class EducationalInstitute {

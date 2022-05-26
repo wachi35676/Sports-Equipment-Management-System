@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
-import project.sportsequipmentmanagementsystem.Equipment;
+import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
 import project.sportsequipmentmanagementsystem.Main;
 
 import java.io.IOException;

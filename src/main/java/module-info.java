@@ -23,4 +23,14 @@ module project.sportsequipmentmanagementsystem {
     opens project.sportsequipmentmanagementsystem.UIControllers.StudentScreenControllers to javafx.fxml;
     exports project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController;
     opens project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController to javafx.fxml;
+    exports project.sportsequipmentmanagementsystem.persistence;
+    opens project.sportsequipmentmanagementsystem.persistence to javafx.fxml;
+    exports project.sportsequipmentmanagementsystem.SportsRoom;
+    opens project.sportsequipmentmanagementsystem.SportsRoom to javafx.fxml;
+    exports project.sportsequipmentmanagementsystem.Student;
+    opens project.sportsequipmentmanagementsystem.Student to javafx.fxml;
+    exports project.sportsequipmentmanagementsystem.SportsTeacher;
+    opens project.sportsequipmentmanagementsystem.SportsTeacher to javafx.fxml;
+    exports project.sportsequipmentmanagementsystem.Principal;
+    opens project.sportsequipmentmanagementsystem.Principal to javafx.fxml;
 }

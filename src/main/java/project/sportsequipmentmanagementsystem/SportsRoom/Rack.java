@@ -1,4 +1,7 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.SportsRoom;
+
+import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
+import project.sportsequipmentmanagementsystem.persistence.PersistenceFactory;
 
 import java.util.ArrayList;
 

@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
-import project.sportsequipmentmanagementsystem.Defaulter;
+import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
 
 import java.io.IOException;
 import java.net.URL;

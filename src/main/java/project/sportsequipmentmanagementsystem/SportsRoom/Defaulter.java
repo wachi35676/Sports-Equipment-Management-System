@@ -1,4 +1,4 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.SportsRoom;
 
 public class Defaulter {
 

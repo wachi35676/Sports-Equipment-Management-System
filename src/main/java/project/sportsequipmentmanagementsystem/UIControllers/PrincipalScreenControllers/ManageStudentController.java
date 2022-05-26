@@ -10,12 +10,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.Date;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
-import project.sportsequipmentmanagementsystem.Student;
+import project.sportsequipmentmanagementsystem.Student.Student;
 
 import java.io.IOException;
 import java.net.URL;

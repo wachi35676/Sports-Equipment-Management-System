@@ -1,7 +1,9 @@
-package project.sportsequipmentmanagementsystem;
+package project.sportsequipmentmanagementsystem.Student;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import project.sportsequipmentmanagementsystem.Date;
+import project.sportsequipmentmanagementsystem.persistence.PersistenceFactory;
+import project.sportsequipmentmanagementsystem.persistence.PersistenceHandler;
+
 import java.util.ArrayList;
 
 public class StudentRecord {
@@ -18,13 +20,12 @@ public class StudentRecord {
     }
 
     public void removeStudent(String rollNumber){
-
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.removeStudent(rollNumber);
     }
 
     public ArrayList<Student> getAllStudentRecords(){
-        return PersistenceFactory.getConnection().getAllStudents(); //bad practice i know but i was to lazy
+        return PersistenceFactory.getConnection().getAllStudents();
     }
 }

@@ -13,8 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
-import project.sportsequipmentmanagementsystem.EquipmentBorrowRecord;
-import project.sportsequipmentmanagementsystem.EquipmentRequests;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 import project.sportsequipmentmanagementsystem.Main;
 
 import java.io.IOException;
