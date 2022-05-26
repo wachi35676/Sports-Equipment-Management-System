@@ -51,8 +51,7 @@ public class SportsRoom {
 
 
     public ArrayList<Defaulter> getDefaultersList(){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         return persistenceHandler.getDefaulters();
     }
 }

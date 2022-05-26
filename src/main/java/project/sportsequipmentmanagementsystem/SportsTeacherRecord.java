@@ -10,38 +10,36 @@ public class SportsTeacherRecord {
         Date date = new Date(dateOfBirth);
         SportsTeacher sportsTeacherToAdd = new SportsTeacher(id, name, date);
 
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.addSportTeacher(sportsTeacherToAdd);
     }
 
     public void removeTeacher(String id){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.removeSportsTeacher(id);
     }
 
     public ArrayList<SportsTeacher> getAllSportsTeacher(){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         return persistenceHandler.getAllSportsTeacher();
     }
     public void issueFine(int rollNo,float fineAmount){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         persistenceHandler.issueFine(rollNo,fineAmount);
     }
     public ArrayList<EquipmentRequests> getEquipmentBorrowStatus(){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         return persistenceHandler.checkIssuedEquipmentList();
     }
     public void equipmentReturn(int rollNo, String date, int equipmentID, float amount){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         persistenceHandler.EquipmentReturned(rollNo,date,equipmentID,amount);
     }
 }

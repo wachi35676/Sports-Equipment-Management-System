@@ -12,20 +12,19 @@ public class StudentRecord {
         Date date = new Date(dateOfBirth);
         Student studentToAdd = new Student(rollNumber, name, date);
 
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.addStudent(studentToAdd);
     }
 
     public void removeStudent(String rollNumber){
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-        PersistenceHandler persistenceHandler = persistenceFactory.getConnection();
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.removeStudent(rollNumber);
     }
 
     public ArrayList<Student> getAllStudentRecords(){
-        return new PersistenceFactory().getConnection().getAllStudents(); //bad practice i know but i was to lazy
+        return PersistenceFactory.getConnection().getAllStudents(); //bad practice i know but i was to lazy
     }
 }

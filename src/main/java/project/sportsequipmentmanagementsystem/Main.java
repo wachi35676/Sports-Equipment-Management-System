@@ -18,12 +18,10 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        PersistenceFactory persistenceFactory = new PersistenceFactory();
-
         DBHandler dbHandler = new DBHandler();
         dbHandler.connectDB();
 
-        persistenceFactory.setConnection(dbHandler);
+        PersistenceFactory.setConnection(dbHandler);
         launch();
     }
 
