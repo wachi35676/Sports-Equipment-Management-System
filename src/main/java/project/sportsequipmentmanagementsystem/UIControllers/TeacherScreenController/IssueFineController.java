@@ -32,12 +32,12 @@ public class IssueFineController  implements Initializable {
     public Button issueFineButton = new Button();
     public TextField amountTextField = new TextField();
     public TextField rollNoTextField = new TextField();
-    TableView<Defaulter> IssueFineTable = new TableView<>();
-    TableColumn<Defaulter,String> studentIdCol = new TableColumn<>();
-    TableColumn<Defaulter,String> equipmentNameCol = new TableColumn<>();
-    TableColumn<Defaulter,String> equipmentIDCol = new TableColumn<>();
-    TableColumn<Defaulter,String> daysCol = new TableColumn<>();
-    ObservableList<Defaulter> List;
+    public TableView<Defaulter> issueFineTable = new TableView<>();
+    public TableColumn<Defaulter,String> studentIdCol = new TableColumn<>();
+    public TableColumn<Defaulter,String> equipmentNameCol = new TableColumn<>();
+    public TableColumn<Defaulter,String> equipmentIDCol = new TableColumn<>();
+    public TableColumn<Defaulter,String> daysCol = new TableColumn<>();
+    public ObservableList<Defaulter> List;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,11 +48,12 @@ public class IssueFineController  implements Initializable {
         equipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
         daysCol.setCellValueFactory(new PropertyValueFactory<>("TimeOfReturn"));
 
-        IssueFineTable.setItems(List);
+        issueFineTable.setItems(List);
 
     }
 
     private ArrayList<Defaulter> getDefaulterList(){
+
         return new EducationalInstitute().getDefaulters();
     }
 
