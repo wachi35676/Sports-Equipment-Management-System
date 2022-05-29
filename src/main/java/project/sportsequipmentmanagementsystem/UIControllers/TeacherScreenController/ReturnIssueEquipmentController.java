@@ -56,6 +56,6 @@ public class ReturnIssueEquipmentController {
         int  id =  Integer.parseInt(EquipmentIDtxtF.getText());
         String  date =    DateOfReturn.getText();
         float amount  = Float.parseFloat(AmountOnDamage.getText());
-        new EducationalInstitute().ReturnEquipment(rollno,date,id,amount);
+        new EducationalInstitute().returnEquipment(rollno,date,id,amount);
     }
 }

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class SportsRoom {
     private Rack rack = new Rack();
-    private EquipmentBorrowRecord equipmentBorrowRecord = new EquipmentBorrowRecord();
+    private EquipmentBorrowRecord equipmentBorrowRecord;
     private SportsTeacher sportsTeacher;
 
-    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
-        rack.addEquipment(equipmentID, name, brand, availability, room);
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String roomID){
+        rack.addEquipment(equipmentID, name, brand, availability, roomID);
     }
 
     public void removeEquipment(String equipmentID){
@@ -21,16 +21,18 @@ public class SportsRoom {
     }
 
     public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
-        rack.removeEquipment(equipmentID);
-        rack.addEquipment(equipmentID, name, brand, availability, room);
+        rack.editEquipment(equipmentID, name, brand, availability, room);
     }
 
     public ArrayList<Equipment> getAllEquipment(){
         return rack.getAllEquipment();
     }
 
-    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
-        equipmentBorrowRecord.processBorrowRequest(equipmentID,studentID,Date);
+    public void processBorrowRequest(String equipmentID, String studentID, Date dateOfIssue) {
+        EquipmentBorrowRecord equipmentBorrowRecordToAdd = new EquipmentBorrowRecord(equipmentID, studentID, dateOfIssue);
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+        persistenceHandler.processBorrowRequest(equipmentBorrowRecordToAdd);
     }
 
 
@@ -54,9 +56,19 @@ public class SportsRoom {
         return null;
     }
 
+    public ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords(){
 
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+        return persistenceHandler.getAllCurrentlyBorrowedEquipmentRecords();
+    }
     public ArrayList<Defaulter> getDefaultersList(){
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         return persistenceHandler.getDefaulters();
+    }
+
+    public void returnEquipment(int rollNo, String dateOfReturn, int equipmentID, float amount){
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+        persistenceHandler.EquipmentReturned(rollNo,dateOfReturn,equipmentID,amount);
     }
 }

@@ -2,6 +2,7 @@ package project.sportsequipmentmanagementsystem.persistence;
 
 import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
 import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
 import project.sportsequipmentmanagementsystem.Student.Student;
@@ -82,6 +83,12 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
+    public void editEquipment(Equipment equipment) {
+        removeStudent(equipment.getEquipmentID());
+        addEquipment(equipment);
+    }
+
+    @Override
     public ArrayList<SportsTeacher> getAllSportsTeacher() {
         ArrayList<SportsTeacher> sportsTeachers = new ArrayList<>();
 
@@ -146,14 +153,14 @@ public class DBHandler implements PersistenceHandler{
         }
     }
     @Override
-    public void processBorrowRequest(String equipmentID, String studentID, project.sportsequipmentmanagementsystem.Date Date) {
+    public void processBorrowRequest(EquipmentBorrowRecord equipmentBorrowRecord) {
         try{
             String sql = "insert into issuance_record (Equipment_ID, Student_ID, Date_Issued) values (?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setString(1, equipmentID);
-            preparedStatement.setString(2, studentID);
-            preparedStatement.setString(3, Date.toString());
+            preparedStatement.setString(1, equipmentBorrowRecord.getEquipmentID());
+            preparedStatement.setString(2, equipmentBorrowRecord.getStudentID());
+            preparedStatement.setString(3, equipmentBorrowRecord.getDateOfIssue().toString());
             preparedStatement.execute();
         }
         catch (SQLException e){
@@ -162,7 +169,7 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
-    public ArrayList<EquipmentRequests> checkIssuedEquipmentList() {
+    public ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords() {
         ArrayList<EquipmentRequests> records = new ArrayList<>();
         try{
             String sql = "SELECT issuance_record.Student_ID,equipment.Name,issuance_record.Date_Issued,issuance_record.Equipment_ID FROM issuance_record INNER JOIN equipment ON equipment.Equipment_ID=issuance_record.Equipment_ID;";
@@ -282,6 +289,12 @@ public class DBHandler implements PersistenceHandler{
         catch (SQLException e){
             System.out.println(e);
         }
+    }
+
+    @Override
+    public void editStudent(Student student) {
+        removeStudent(student.getId());
+        addStudent(student);
     }
 
     @Override
