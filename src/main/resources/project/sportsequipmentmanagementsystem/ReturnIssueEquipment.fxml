@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.DropShadow?>
@@ -119,7 +121,7 @@
                                     <Image url="@black-image.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="411.0" mnemonicParsing="false" onAction="#ReturnEquipement" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
+                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="239.0" mnemonicParsing="false" onAction="#ReturnEquipement" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
@@ -127,26 +129,36 @@
                                     <Bloom threshold="0.0" />
                                  </effect>
                               </Button>
-                              <TextField fx:id="RollNoTxtF" layoutX="233.0" layoutY="167.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="RollNoTxtF" layoutX="232.0" layoutY="31.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField fx:id="EquipmentIDtxtF" layoutX="232.0" layoutY="231.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Equipement ID" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="EquipmentIDtxtF" layoutX="232.0" layoutY="83.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Equipement ID" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField fx:id="AmountOnDamage" layoutX="232.0" layoutY="352.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter fine amount on damage" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="AmountOnDamage" layoutX="232.0" layoutY="182.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter fine amount on damage" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField fx:id="DateOfReturn" layoutX="232.0" layoutY="288.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="DateOfReturn" layoutX="233.0" layoutY="132.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
+                              <TableView fx:id="equipmentBorrowRecordTableView" layoutX="46.0" layoutY="291.0" prefHeight="236.0" prefWidth="600.0">
+                                 <columns>
+                                    <TableColumn fx:id="StudentIDcolumn" prefWidth="83.0" text="StudentID" />
+                                    <TableColumn fx:id="IssuedEquipmentCol" prefWidth="130.0" style="-fx-background-color: WHITE;" text="IssuedEquipment" />
+                                    <TableColumn fx:id="DateOfIssueCol" prefWidth="98.0" text="DateOfIssue" />
+                                    <TableColumn fx:id="EquipmentIDCol" prefWidth="102.0" text="EquipmentID" />
+                                    <TableColumn fx:id="DateOfReturn1" prefWidth="110.0" text="DateOfReturn" />
+                                    <TableColumn fx:id="Fine1" prefWidth="75.0" text="Fine" />
+                                 </columns>
+                              </TableView>
                            </children>
                         </Pane>
                         <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />

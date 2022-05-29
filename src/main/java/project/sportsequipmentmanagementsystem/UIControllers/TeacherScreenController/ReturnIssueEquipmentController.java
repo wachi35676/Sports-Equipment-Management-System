@@ -3,12 +3,15 @@ package project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenContr
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 
 import java.io.IOException;
 
@@ -19,6 +22,14 @@ public class ReturnIssueEquipmentController {
     public Button equipmentReturn = new Button();
     public ImageView equipment = new ImageView();
     public  ImageView Fine = new ImageView();
+
+    public TableView<EquipmentRequests> equipmentBorrowRecordTableView = new TableView<>();
+    public TableColumn<EquipmentRequests,String> StudentIDcolumn;
+    public  TableColumn<EquipmentRequests,String>   IssuedEquipmentCol;
+    public  TableColumn<EquipmentRequests,String>   DateOfIssueCol;
+    public  TableColumn<EquipmentRequests,String>   EquipmentIDCol;
+    public  TableColumn<EquipmentRequests,String>  DateOfReturn1;
+    public  TableColumn<EquipmentRequests,String>  Fine1;
 
     public    TextField    RollNoTxtF =      new TextField();
     public    TextField    EquipmentIDtxtF = new TextField();

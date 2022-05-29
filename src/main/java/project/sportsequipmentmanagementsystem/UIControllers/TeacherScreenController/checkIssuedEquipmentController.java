@@ -28,6 +28,8 @@ public class checkIssuedEquipmentController implements Initializable {
     public  TableColumn<EquipmentRequests,String>   IssuedEquipmentCol;
     public  TableColumn<EquipmentRequests,String>   DateOfIssueCol;
     public  TableColumn<EquipmentRequests,String>   EquipmentIDCol;
+    public  TableColumn<EquipmentRequests,String>  DateOfReturn;
+    public  TableColumn<EquipmentRequests,String>  Fine;
     public ObservableList<EquipmentRequests> List;
 
     public ImageView ManageEQBtn = new ImageView();
@@ -62,11 +64,11 @@ public class checkIssuedEquipmentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List = FXCollections.observableList(getIssuedList());
+     /*   List = FXCollections.observableList(getIssuedList());
         StudentIDcolumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
         IssuedEquipmentCol.setCellValueFactory(new PropertyValueFactory<>("IssuedEquipmentName"));
         DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("IssuedDate"));
         EquipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
-        equipmentBorrowRecordTableView.setItems(List);
+        equipmentBorrowRecordTableView.setItems(List);*/
     }
 }
