@@ -25,43 +25,46 @@ public class EducationalInstitute {
         return studentRecord.getAllStudentRecords();
     }
 
-    public void addStudent(String rollNumber, String name, String dateOfBirth){
-        studentRecord.addStudent(rollNumber, name, dateOfBirth);
+    public ArrayList<Student>  addStudent(String rollNumber, String name, String dateOfBirth){
+        return studentRecord.addStudent(rollNumber, name, dateOfBirth);
     }
 
-    public void removeStudent(String rollNumber){
-        studentRecord.removeStudent(rollNumber);
+    public ArrayList<Student>  removeStudent(String rollNumber){
+        return studentRecord.removeStudent(rollNumber);
     }
 
-    public void editStudent(String rollNumber, String name, String dateOfBirth){
-        studentRecord.editStudent(rollNumber, name, dateOfBirth);
+    public ArrayList<Student>  editStudent(String rollNumber, String name, String dateOfBirth){
+        return studentRecord.editStudent(rollNumber, name, dateOfBirth);
     }
 
     public ArrayList<Equipment> getAllEquipment(){
         return sportsRoom.getAllEquipment();
     }
 
-    public void addEquipment(String equipmentID, String name, String brand, String availability, String roomID){
-        sportsRoom.addEquipment(equipmentID, name, brand, availability, roomID);
+    public ArrayList<Equipment> addEquipment(String equipmentID, String name, String brand, String availability, String roomID){
+        return sportsRoom.addEquipment(equipmentID, name, brand, availability, roomID);
     }
 
-    public void removeEquipment(String equipmentID){
-        sportsRoom.removeEquipment(equipmentID);
+    public ArrayList<Equipment> removeEquipment(String equipmentID){
+        return sportsRoom.removeEquipment(equipmentID);
     }
 
-    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
-        sportsRoom.editEquipment(equipmentID, name, brand, availability, room);
+    public ArrayList<Equipment> editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        return sportsRoom.editEquipment(equipmentID, name, brand, availability, room);
     }
 
     public ArrayList<SportsTeacher> getAllSportsTeacher(){
         return sportsTeacherRecord.getAllSportsTeacher();
     }
 
-    public void addSportsTeacher(String id, String name, String dateOfBirth){
-        sportsTeacherRecord.addTeacher(id, name,dateOfBirth);
+    public ArrayList<SportsTeacher> addSportsTeacher(String id, String name, String dateOfBirth){
+        return sportsTeacherRecord.addTeacher(id, name,dateOfBirth);
     }
-    public void removeSportsTeacher(String id){
-        sportsTeacherRecord.removeTeacher(id);
+    public ArrayList<SportsTeacher> removeSportsTeacher(String id){
+        return sportsTeacherRecord.removeTeacher(id);
+    }
+    public ArrayList<SportsTeacher> editSportsTeacher(String id, String name, String dateOfBirth){
+        return sportsTeacherRecord.editTeacher(id, name,dateOfBirth);
     }
 
     public void processBorrowRequest(String equipmentID, String studentID, Date dateOfIssue) {

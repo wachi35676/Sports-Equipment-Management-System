@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class StudentRecord {
 
-    public void addStudent(String rollNumber, String name, String dateOfBirth){
+    public ArrayList<Student> addStudent(String rollNumber, String name, String dateOfBirth){
         dateOfBirth = dateOfBirth.replaceAll("/","");
         dateOfBirth = dateOfBirth.replaceAll("-","");
         Date date = new Date(dateOfBirth);
@@ -17,15 +17,19 @@ public class StudentRecord {
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.addStudent(studentToAdd);
+
+        return getAllStudentRecords();
     }
 
-    public void removeStudent(String rollNumber){
+    public ArrayList<Student>  removeStudent(String rollNumber){
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.removeStudent(rollNumber);
+
+        return getAllStudentRecords();
     }
 
-    public void editStudent(String rollNumber, String name, String dateOfBirth){
+    public ArrayList<Student>  editStudent(String rollNumber, String name, String dateOfBirth){
         dateOfBirth = dateOfBirth.replaceAll("/","");
         dateOfBirth = dateOfBirth.replaceAll("-","");
         Date date = new Date(dateOfBirth);
@@ -34,6 +38,8 @@ public class StudentRecord {
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.editStudent(studentToEdit);
+
+        return getAllStudentRecords();
     }
 
     public ArrayList<Student> getAllStudentRecords(){

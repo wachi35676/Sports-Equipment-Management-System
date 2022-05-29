@@ -21,6 +21,7 @@ public interface PersistenceHandler {
     ArrayList<SportsTeacher> getAllSportsTeacher();
     void addSportTeacher(SportsTeacher sportsTeacher);
     void removeSportsTeacher(String id);
+    void editSportTeacher(SportsTeacher sportsTeacher);
     void  issueFine(int rollno,float amount);
     ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords();
     void EquipmentReturned(int rollNo,String date,int equipmentID,float amount);

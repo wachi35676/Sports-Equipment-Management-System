@@ -12,16 +12,16 @@ public class SportsRoom {
     private EquipmentBorrowRecord equipmentBorrowRecord;
     private SportsTeacher sportsTeacher;
 
-    public void addEquipment(String equipmentID, String name, String brand, String availability, String roomID){
-        rack.addEquipment(equipmentID, name, brand, availability, roomID);
+    public ArrayList<Equipment> addEquipment(String equipmentID, String name, String brand, String availability, String roomID){
+        return rack.addEquipment(equipmentID, name, brand, availability, roomID);
     }
 
-    public void removeEquipment(String equipmentID){
-        rack.removeEquipment(equipmentID);
+    public ArrayList<Equipment> removeEquipment(String equipmentID){
+        return rack.removeEquipment(equipmentID);
     }
 
-    public void editEquipment(String equipmentID, String name, String brand, String availability, String room){
-        rack.editEquipment(equipmentID, name, brand, availability, room);
+    public ArrayList<Equipment> editEquipment(String equipmentID, String name, String brand, String availability, String room){
+        return rack.editEquipment(equipmentID, name, brand, availability, room);
     }
 
     public ArrayList<Equipment> getAllEquipment(){

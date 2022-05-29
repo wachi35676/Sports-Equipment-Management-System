@@ -84,23 +84,23 @@ public class ManageEquipmentController implements Initializable {
     }
 
     public void addEquipment(ActionEvent event) throws IOException{
-        new EducationalInstitute().addEquipment(equipmentID.getText(), name.getText(), brandName.getText(), availability.getText(), room.getText());
+        ArrayList<Equipment> equipments = new EducationalInstitute().addEquipment(equipmentID.getText(), name.getText(), brandName.getText(), availability.getText(), room.getText());
 
-        equipmentObservableList = FXCollections.observableArrayList(getStudentsData());
+        equipmentObservableList = FXCollections.observableArrayList(equipments);
         equipmentTable.setItems(equipmentObservableList);
     }
 
     public void editEquipment(ActionEvent event) throws IOException{
-        new EducationalInstitute().editEquipment(equipmentID.getText(), name.getText(), brandName.getText(), availability.getText(), room.getText());
+        ArrayList<Equipment> equipments = new EducationalInstitute().editEquipment(equipmentID.getText(), name.getText(), brandName.getText(), availability.getText(), room.getText());
 
-        equipmentObservableList = FXCollections.observableArrayList(getStudentsData());
+        equipmentObservableList = FXCollections.observableArrayList(equipments);
         equipmentTable.setItems(equipmentObservableList);
     }
 
     public void removeEquipment(ActionEvent event) throws IOException{
-        new EducationalInstitute().removeEquipment(equipmentID.getText());
+        ArrayList<Equipment> equipments = new EducationalInstitute().removeEquipment(equipmentID.getText());
 
-        equipmentObservableList = FXCollections.observableArrayList(getStudentsData());
+        equipmentObservableList = FXCollections.observableArrayList(equipments);
         equipmentTable.setItems(equipmentObservableList);
     }
 }

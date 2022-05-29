@@ -79,24 +79,23 @@ public class ManageTeacherController implements Initializable {
     }
 
     public void addTeacher(ActionEvent event) throws IOException{
-        new EducationalInstitute().addSportsTeacher(teacherID.getText(), name.getText(), dateOfBirth.getText());
+        ArrayList<SportsTeacher> sportsTeachers = new EducationalInstitute().addSportsTeacher(teacherID.getText(), name.getText(), dateOfBirth.getText());
 
-        sportsTeacherObservableList = FXCollections.observableArrayList(getTeachersData());
+        sportsTeacherObservableList = FXCollections.observableArrayList(sportsTeachers);
         teachersTable.setItems(sportsTeacherObservableList);
     }
 
     public void editTeacher(ActionEvent event) throws IOException{
-        new EducationalInstitute().removeSportsTeacher(teacherID.getText());
-        new EducationalInstitute().addSportsTeacher(teacherID.getText(), name.getText(), dateOfBirth.getText());
+        ArrayList<SportsTeacher> sportsTeachers = new EducationalInstitute().editSportsTeacher(teacherID.getText(), name.getText(), dateOfBirth.getText());
 
-        sportsTeacherObservableList = FXCollections.observableArrayList(getTeachersData());
+        sportsTeacherObservableList = FXCollections.observableArrayList(sportsTeachers);
         teachersTable.setItems(sportsTeacherObservableList);
     }
 
     public void removeTeacher(ActionEvent event) throws IOException{
-        new EducationalInstitute().removeSportsTeacher(teacherID.getText());
+        ArrayList<SportsTeacher> sportsTeachers = new EducationalInstitute().removeSportsTeacher(teacherID.getText());
 
-        sportsTeacherObservableList = FXCollections.observableArrayList(getTeachersData());
+        sportsTeacherObservableList = FXCollections.observableArrayList(sportsTeachers);
         teachersTable.setItems(sportsTeacherObservableList);
     }
 }

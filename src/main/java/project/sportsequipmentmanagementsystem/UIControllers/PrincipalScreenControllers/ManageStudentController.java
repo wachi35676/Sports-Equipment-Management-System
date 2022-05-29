@@ -81,23 +81,23 @@ public class ManageStudentController implements Initializable {
     }
 
     public void addStudent(ActionEvent event) throws IOException{
-        new EducationalInstitute().addStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
+        ArrayList<Student> students = new EducationalInstitute().addStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
 
         studentObservableList = FXCollections.observableArrayList(getStudentsData());
         studentsTable.setItems(studentObservableList);
     }
 
     public void editStudent(ActionEvent event) throws IOException{
-        new EducationalInstitute().editStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
+        ArrayList<Student> students = new EducationalInstitute().editStudent(rollNumber.getText(),name.getText(),dateOfBirth.getText());
 
-        studentObservableList = FXCollections.observableArrayList(getStudentsData());
+        studentObservableList = FXCollections.observableArrayList(students);
         studentsTable.setItems(studentObservableList);
     }
 
     public void removeStudent(ActionEvent event) throws IOException{
-        new EducationalInstitute().removeStudent(rollNumber.getText());
+        ArrayList<Student> students = new EducationalInstitute().removeStudent(rollNumber.getText());
 
-        studentObservableList = FXCollections.observableArrayList(getStudentsData());
+        studentObservableList = FXCollections.observableArrayList(students);
         studentsTable.setItems(studentObservableList);
     }
 }

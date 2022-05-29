@@ -141,6 +141,12 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
+    public void editSportTeacher(SportsTeacher sportsTeacher) {
+        removeSportsTeacher(sportsTeacher.getId());
+        addSportTeacher(sportsTeacher);
+    }
+
+    @Override
     public void issueFine(int rollno, float amount) {
         try {
             String sql = "update issuance_record set Fine=? where Student_ID=?";

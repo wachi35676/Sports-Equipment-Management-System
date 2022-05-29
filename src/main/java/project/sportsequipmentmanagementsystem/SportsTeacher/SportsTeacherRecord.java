@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class SportsTeacherRecord {
     private SportsTeacher sportsTeacher;
-    public void addTeacher(String id, String name, String dateOfBirth){
+    public ArrayList<SportsTeacher> addTeacher(String id, String name, String dateOfBirth){
         dateOfBirth = dateOfBirth.replaceAll("/","");
         dateOfBirth = dateOfBirth.replaceAll("-","");
         Date date = new Date(dateOfBirth);
@@ -18,12 +18,29 @@ public class SportsTeacherRecord {
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.addSportTeacher(sportsTeacherToAdd);
+
+        return getAllSportsTeacher();
     }
 
-    public void removeTeacher(String id){
+    public ArrayList<SportsTeacher> editTeacher(String id, String name, String dateOfBirth){
+        dateOfBirth = dateOfBirth.replaceAll("/","");
+        dateOfBirth = dateOfBirth.replaceAll("-","");
+        Date date = new Date(dateOfBirth);
+        SportsTeacher sportsTeacherToAdd = new SportsTeacher(id, name, date);
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+
+        persistenceHandler.editSportTeacher(sportsTeacherToAdd);
+
+        return getAllSportsTeacher();
+    }
+
+    public ArrayList<SportsTeacher> removeTeacher(String id){
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
 
         persistenceHandler.removeSportsTeacher(id);
+
+        return getAllSportsTeacher();
     }
 
     public ArrayList<SportsTeacher> getAllSportsTeacher(){
