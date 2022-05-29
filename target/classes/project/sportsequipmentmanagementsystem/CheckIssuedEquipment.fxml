@@ -116,10 +116,12 @@
                   </ImageView>
                   <TableView fx:id="equipmentBorrowRecordTableView" layoutX="51.0" layoutY="39.0" prefHeight="429.0" prefWidth="608.0">
                      <columns>
-                        <TableColumn fx:id="StudentIDcolumn" prefWidth="115.0" text="StudentID" />
-                        <TableColumn fx:id="IssuedEquipmentCol" prefWidth="149.0" style="-fx-background-color: WHITE;" text="IssuedEquipment" />
-                        <TableColumn fx:id="DateOfIssueCol" prefWidth="131.0" text="DateOfIssue" />
-                        <TableColumn fx:id="EquipmentIDCol" prefWidth="135.0" text="EquipmentID" />
+                        <TableColumn fx:id="StudentIDcolumn" prefWidth="83.0" text="StudentID" />
+                        <TableColumn fx:id="IssuedEquipmentCol" prefWidth="130.0" style="-fx-background-color: WHITE;" text="IssuedEquipment" />
+                        <TableColumn fx:id="DateOfIssueCol" prefWidth="98.0" text="DateOfIssue" />
+                        <TableColumn fx:id="EquipmentIDCol" prefWidth="102.0" text="EquipmentID" />
+                        <TableColumn fx:id="DateOfReturn" prefWidth="110.0" text="DateOfReturn" />
+                        <TableColumn fx:id="Fine" prefWidth="75.0" text="Fine" />
                      </columns>
                   </TableView>
                </children>
