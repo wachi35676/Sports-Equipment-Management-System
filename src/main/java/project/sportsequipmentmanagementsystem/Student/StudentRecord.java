@@ -25,6 +25,17 @@ public class StudentRecord {
         persistenceHandler.removeStudent(rollNumber);
     }
 
+    public void editStudent(String rollNumber, String name, String dateOfBirth){
+        dateOfBirth = dateOfBirth.replaceAll("/","");
+        dateOfBirth = dateOfBirth.replaceAll("-","");
+        Date date = new Date(dateOfBirth);
+        Student studentToEdit = new Student(rollNumber, name, date);
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+
+        persistenceHandler.editStudent(studentToEdit);
+    }
+
     public ArrayList<Student> getAllStudentRecords(){
         return PersistenceFactory.getConnection().getAllStudents();
     }

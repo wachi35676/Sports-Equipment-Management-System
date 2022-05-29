@@ -37,14 +37,4 @@ public class SportsTeacherRecord {
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         persistenceHandler.issueFine(rollNo,fineAmount);
     }
-    public ArrayList<EquipmentRequests> getEquipmentBorrowStatus(){
-
-        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        return persistenceHandler.checkIssuedEquipmentList();
-    }
-    public void equipmentReturn(int rollNo, String date, int equipmentID, float amount){
-
-        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        persistenceHandler.EquipmentReturned(rollNo,date,equipmentID,amount);
-    }
 }

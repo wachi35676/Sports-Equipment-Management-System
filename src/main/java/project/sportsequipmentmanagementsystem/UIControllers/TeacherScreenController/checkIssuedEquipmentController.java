@@ -57,7 +57,7 @@ public class checkIssuedEquipmentController implements Initializable {
     }
 
     public ArrayList<EquipmentRequests> getIssuedList(){
-        return new EducationalInstitute().getIssuedDetails();
+        return new EducationalInstitute().getAllCurrentlyBorrowedEquipmentRecords();
     }
 
     @Override

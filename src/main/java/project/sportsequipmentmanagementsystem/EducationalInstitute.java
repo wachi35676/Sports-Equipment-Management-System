@@ -34,16 +34,15 @@ public class EducationalInstitute {
     }
 
     public void editStudent(String rollNumber, String name, String dateOfBirth){
-        studentRecord.removeStudent(rollNumber);
-        studentRecord.addStudent(rollNumber, name, dateOfBirth);
+        studentRecord.editStudent(rollNumber, name, dateOfBirth);
     }
 
     public ArrayList<Equipment> getAllEquipment(){
         return sportsRoom.getAllEquipment();
     }
 
-    public void addEquipment(String equipmentID, String name, String brand, String availability, String room){
-        sportsRoom.addEquipment(equipmentID, name, brand, availability, room);
+    public void addEquipment(String equipmentID, String name, String brand, String availability, String roomID){
+        sportsRoom.addEquipment(equipmentID, name, brand, availability, roomID);
     }
 
     public void removeEquipment(String equipmentID){
@@ -65,27 +64,19 @@ public class EducationalInstitute {
         sportsTeacherRecord.removeTeacher(id);
     }
 
-    public void processBorrowRequest(String equipmentID, String studentID, Date Date) {
-         sportsRoom.processBorrowRequest(equipmentID,studentID,Date);
-    }
-
-    public Equipment [] checkIssuedEquipment(String rollNumber) {
-        return sportsRoom.checkIssuedEquipment(rollNumber);
-    }
-
-    public Equipment [] returnIssuedEquipment(String rollNumber, String equipmentID) {
-        return sportsRoom.returnIssuedEquipment(rollNumber, equipmentID);
+    public void processBorrowRequest(String equipmentID, String studentID, Date dateOfIssue) {
+         sportsRoom.processBorrowRequest(equipmentID,studentID,dateOfIssue);
     }
 
     public void IssueFine(int rollno,float amount){
        sportsTeacherRecord.issueFine(rollno,amount);
     }
 
-    public ArrayList<EquipmentRequests> getIssuedDetails(){
-       return sportsTeacherRecord.getEquipmentBorrowStatus();
+    public ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords(){
+       return sportsRoom.getAllCurrentlyBorrowedEquipmentRecords();
     }
-    public void ReturnEquipment(int rollNo, String date, int equipmentID, float amount){
-        sportsTeacherRecord.equipmentReturn(rollNo,date,equipmentID,amount);
+    public void returnEquipment(int rollNo, String dateOfReturn, int equipmentID, float amount){
+        sportsRoom.returnEquipment(rollNo,dateOfReturn,equipmentID,amount);
     }
     public ArrayList<Defaulter> getDefaulters(){
         return sportsRoom.getDefaultersList();
