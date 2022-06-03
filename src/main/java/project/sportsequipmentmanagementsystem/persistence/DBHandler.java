@@ -211,8 +211,18 @@ public class DBHandler implements PersistenceHandler{
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery(sql);
 
+
             while(resultSet.next()){
-                equipmentBorrowRecords.add(new EquipmentBorrowRecord (resultSet.getString("Issuance_Record_ID"), resultSet.getString("Equipment_ID"), resultSet.getString("Student_ID"),  new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued")), new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned")), Float.parseFloat(resultSet.getString("Fine"))));
+                String issuanceRecordID = resultSet.getString("Issuance_Record_ID");
+                String equipmentID = resultSet.getString("Equipment_ID");
+                String studentID = resultSet.getString("Student_ID");
+                project.sportsequipmentmanagementsystem.Date issueDate = new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued"));
+                //project.sportsequipmentmanagementsystem.Date returnDate =new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned"));
+                //Float fine = Float.parseFloat(resultSet.getString("Fine"));
+
+                EquipmentBorrowRecord equipmentBorrowRecord = new EquipmentBorrowRecord(issuanceRecordID, equipmentID, studentID, issueDate, null, null);
+
+                equipmentBorrowRecords.add(equipmentBorrowRecord);
             }
 
         }catch (Exception e){

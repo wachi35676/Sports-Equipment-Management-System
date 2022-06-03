@@ -13,10 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import project.sportsequipmentmanagementsystem.Date;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
-import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,7 +34,7 @@ public class ReturnIssueEquipmentController implements Initializable {
     public TableView<EquipmentBorrowRecord> equipmentBorrowRecordTableView = new TableView<>();
     public TableColumn<EquipmentBorrowRecord,String> borrow_ID;
     public TableColumn<EquipmentBorrowRecord,String> StudentIDcolumn;
-    public  TableColumn<EquipmentBorrowRecord,String>   DateOfIssueCol;
+    public  TableColumn<EquipmentBorrowRecord, Date>   DateOfIssueCol;
     public  TableColumn<EquipmentBorrowRecord,String>   EquipmentIDCol;
     public ObservableList<EquipmentBorrowRecord> equipmentBorrowRecords;
 
@@ -49,7 +49,7 @@ public class ReturnIssueEquipmentController implements Initializable {
         borrow_ID.setCellValueFactory(new PropertyValueFactory<>("BorrowRecordID"));
         StudentIDcolumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
         EquipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
-        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("IssuedDate"));
+        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("DateOfIssue"));
 
         equipmentBorrowRecordTableView.setItems(equipmentBorrowRecords);
     }
@@ -84,9 +84,12 @@ public class ReturnIssueEquipmentController implements Initializable {
         new Main().changeSceneToIssueFine(stage);
     }
 
-    public void ReturnEquipement(ActionEvent event) {
+    public void returnEquipment(ActionEvent event) {
         int issueRecord= Integer.parseInt(borrowRecord_ID.getText());
         String  date =    DateOfReturn.getText();
         new EducationalInstitute().returnEquipment(issueRecord,date);
+
+        equipmentBorrowRecords = FXCollections.observableList(getIssuedList());
+        equipmentBorrowRecordTableView.setItems(equipmentBorrowRecords);
     }
 }

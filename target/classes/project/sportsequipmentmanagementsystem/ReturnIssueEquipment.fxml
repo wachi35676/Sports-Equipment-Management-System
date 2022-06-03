@@ -119,7 +119,7 @@
                         </Text>
                         <Pane layoutX="92.0" layoutY="60.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
                            <children>
-                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="171.0" mnemonicParsing="false" onAction="#ReturnEquipement" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
+                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="171.0" mnemonicParsing="false" onAction="#returnEquipment" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>

@@ -76,4 +76,16 @@ public class EquipmentBorrowRecord {
     public void setBorrowRecordID(String borrowRecordID) {
         this.borrowRecordID = borrowRecordID;
     }
+
+    @Override
+    public String toString() {
+        return "EquipmentBorrowRecord{" +
+                "borrowRecordID='" + borrowRecordID + '\'' +
+                ", equipmentID='" + equipmentID + '\'' +
+                ", studentID='" + studentID + '\'' +
+                ", dateOfIssue=" + dateOfIssue +
+                ", dateOfReturn=" + dateOfReturn +
+                ", fine=" + fine +
+                '}';
+    }
 }
