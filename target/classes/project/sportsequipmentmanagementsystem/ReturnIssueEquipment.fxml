@@ -63,12 +63,6 @@
                               <Font name="Segoe UI Bold" size="15.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="127.0" layoutY="15.0" prefHeight="31.0" prefWidth="375.0" promptText="Enter Equipment To Search" />
-                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="511.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search-icon.png" />
-                           </image>
-                        </ImageView>
                         <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                         <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                         <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
@@ -132,7 +126,7 @@
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField fx:id="DateOfReturn" layoutX="232.0" layoutY="88.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="DateOfReturn" layoutX="232.0" layoutY="88.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Return Date" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>

@@ -84,9 +84,9 @@ public class IssueFineController  implements Initializable {
     }
 
 
-    public void IssueFineToStudent(ActionEvent event) {
-        int rollno =   Integer.parseInt(  rollNoTextField.getText() );
+    public void issueFine(ActionEvent event) {
+        String issueRecordID =   rollNoTextField.getText() ;
         float amount =  Float.parseFloat(  amountTextField.getText() );
-        new EducationalInstitute().IssueFine(rollno,amount);
+        new EducationalInstitute().issueFine(issueRecordID,amount);
     }
 }

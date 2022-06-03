@@ -13,6 +13,7 @@ public class EquipmentBorrowRecord {
     public Float fine;
 
 
+    public EquipmentBorrowRecord(){}
 
     public EquipmentBorrowRecord(String borrowRecordID, String equipmentID, String studentID, Date dateOfIssue, Date dateOfReturn, Float fine) {
         this.borrowRecordID = borrowRecordID;

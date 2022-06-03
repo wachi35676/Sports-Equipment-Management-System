@@ -85,7 +85,7 @@ public class ReturnIssueEquipmentController implements Initializable {
     }
 
     public void returnEquipment(ActionEvent event) {
-        int issueRecord= Integer.parseInt(borrowRecord_ID.getText());
+        String issueRecord= borrowRecord_ID.getText();
         String  date =    DateOfReturn.getText();
         new EducationalInstitute().returnEquipment(issueRecord,date);
 

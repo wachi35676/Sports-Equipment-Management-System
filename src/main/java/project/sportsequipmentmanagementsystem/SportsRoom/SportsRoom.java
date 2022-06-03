@@ -5,7 +5,11 @@ import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
 import project.sportsequipmentmanagementsystem.persistence.PersistenceFactory;
 import project.sportsequipmentmanagementsystem.persistence.PersistenceHandler;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class SportsRoom {
     private Rack rack = new Rack();
@@ -45,13 +49,48 @@ public class SportsRoom {
         return persistenceHandler.getDefaulters();
     }
 
-    public void returnEquipment(int issueRecord, String dateOfReturn){
-
+    public float returnEquipment(String issueRecord, String dateOfReturn){
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        persistenceHandler.returnEquipment(issueRecord,dateOfReturn);
+
+        EquipmentBorrowRecord equipmentBorrowRecord1 = persistenceHandler.getBorrowRequest(issueRecord);
+
+        equipmentBorrowRecord1.setDateOfReturn(new Date(dateOfReturn));
+        float fine = calculateFine(equipmentBorrowRecord1);
+
+        equipmentBorrowRecord1.setFine(fine);
+        equipmentBorrowRecord1.setBorrowRecordID(issueRecord);
+
+        persistenceHandler.returnEquipment(equipmentBorrowRecord1);
+
+        return fine;
     }
 
-    public void issueFine(int issueRecordId,float fine){
+    private float calculateFine(EquipmentBorrowRecord equipmentBorrowRecord) {
+        float fine;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+
+        Date issueDate = equipmentBorrowRecord.getDateOfIssue();
+        Date returnDate = equipmentBorrowRecord.getDateOfReturn();
+
+        long diff = 0;
+        try {
+            diff = sdf.parse(returnDate.convert()).getTime() - sdf.parse(issueDate.convert()).getTime();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        TimeUnit time = TimeUnit.DAYS;
+        double difference = time.convert(diff, TimeUnit.MILLISECONDS);
+
+        System.out.println("The difference in days is : "+difference);
+
+        fine = (float) (difference * 100);
+
+        return fine;
+    }
+
+    public void issueFine(String issueRecordId,float fine){
 
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         persistenceHandler.issueFine(issueRecordId,fine);

@@ -21,10 +21,11 @@ public interface PersistenceHandler {
     void addSportTeacher(SportsTeacher sportsTeacher);
     void removeSportsTeacher(String id);
     void editSportTeacher(SportsTeacher sportsTeacher);
-    void  issueFine(int rollno,float amount);
+    void  issueFine(String issueRecordID,float amount);
     ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords();
-    void returnEquipment(int issueRecord, String date);
+    void returnEquipment(EquipmentBorrowRecord equipmentBorrowRecord);
     ArrayList<Defaulter> getDefaulters();
     void processBorrowRequest(EquipmentBorrowRecord equipmentBorrowRecord);
     ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords();
+    EquipmentBorrowRecord getBorrowRequest(String id);
 }

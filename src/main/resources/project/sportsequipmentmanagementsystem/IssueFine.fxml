@@ -130,7 +130,7 @@
                               <TableColumn fx:id="daysCol" prefWidth="143.0" text="TimePassed(Days)" />
                            </columns>
                         </TableView>
-                        <Button fx:id="issueFineButton" layoutX="253.0" layoutY="496.0" mnemonicParsing="false" onAction="#IssueFineToStudent" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
+                        <Button fx:id="issueFineButton" layoutX="253.0" layoutY="496.0" mnemonicParsing="false" onAction="#issueFine" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>

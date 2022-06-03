@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class DBHandler implements PersistenceHandler{
@@ -147,12 +148,12 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
-    public void issueFine(int rollno, float amount) {
+    public void issueFine(String issueRecordID, float amount) {
         try {
             String sql = "update issuance_record set Fine=? where Student_ID=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setFloat(1, amount);
-            preparedStatement.setInt(2, rollno);
+            preparedStatement.setString(2, issueRecordID);
             preparedStatement.execute();
         } catch (SQLException e) {
             System.out.println(e);
@@ -203,6 +204,23 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
+    public EquipmentBorrowRecord getBorrowRequest(String id) {
+
+        ArrayList<EquipmentBorrowRecord> equipmentBorrowRecords = getAllCurrentlyBorrowedEquipmentRecords();
+
+        for (int i = 0; i < equipmentBorrowRecords.size(); i++) {
+
+            System.out.println(id + " " + equipmentBorrowRecords.get(i).getBorrowRecordID());
+
+            if(Objects.equals(id, equipmentBorrowRecords.get(i).getBorrowRecordID())){
+                return equipmentBorrowRecords.get(i);
+            }
+        }
+
+        return new EquipmentBorrowRecord();
+    }
+
+    @Override
     public ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords() {
         ArrayList<EquipmentBorrowRecord> equipmentBorrowRecords = new ArrayList<>();
         try{
@@ -232,15 +250,15 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
-    public void returnEquipment(int issueRecord, String date) {
+    public void returnEquipment(EquipmentBorrowRecord equipmentBorrowRecord) {
         try{
             String sql1 = "update issuance_record set Date_Returned=? where Issuance_Record_ID=?";
             String sql2 ="update equipment INNER join issuance_record on equipment.Equipment_ID = issuance_record.Equipment_ID set Availability='Available' where Issuance_Record_ID=?";
             PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
-            preparedStatement1.setString(1,date);
-            preparedStatement1.setInt(2,issueRecord);
+            preparedStatement1.setString(1,equipmentBorrowRecord.getDateOfReturn().toString());
+            preparedStatement1.setInt(2,Integer.parseInt(equipmentBorrowRecord.getBorrowRecordID()));
             PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
-            preparedStatement2.setInt(1,issueRecord);
+            preparedStatement2.setInt(1,Integer.parseInt(equipmentBorrowRecord.getBorrowRecordID()));
             preparedStatement1.execute();
             preparedStatement2.execute();
         }
