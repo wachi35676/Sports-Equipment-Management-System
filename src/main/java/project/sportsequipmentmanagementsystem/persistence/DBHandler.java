@@ -162,12 +162,21 @@ public class DBHandler implements PersistenceHandler{
     public void processBorrowRequest(EquipmentBorrowRecord equipmentBorrowRecord) {
         try{
             String sql = "insert into issuance_record (Equipment_ID, Student_ID, Date_Issued) values (?,?,?)";
+
+
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, equipmentBorrowRecord.getEquipmentID());
             preparedStatement.setString(2, equipmentBorrowRecord.getStudentID());
             preparedStatement.setString(3, equipmentBorrowRecord.getDateOfIssue().toString());
             preparedStatement.execute();
+
+
+            String sql2 ="update equipment  set Availability='Unavailable' where Equipment_ID=?";
+            PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
+            preparedStatement2.setString(1,equipmentBorrowRecord.getEquipmentID());
+            preparedStatement2.execute();
         }
         catch (SQLException e){
             System.out.println(e);
