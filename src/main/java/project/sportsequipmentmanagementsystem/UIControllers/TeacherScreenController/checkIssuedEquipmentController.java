@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 import project.sportsequipmentmanagementsystem.Main;
 
@@ -23,20 +24,30 @@ import java.util.ResourceBundle;
 
 public class checkIssuedEquipmentController implements Initializable {
 
-    public  TableView<EquipmentRequests> equipmentBorrowRecordTableView = new TableView<>();
-    public  TableColumn<EquipmentRequests,String>   StudentIDcolumn;
-    public  TableColumn<EquipmentRequests,String>   IssuedEquipmentCol;
-    public  TableColumn<EquipmentRequests,String>   DateOfIssueCol;
-    public  TableColumn<EquipmentRequests,String>   EquipmentIDCol;
-    public  TableColumn<EquipmentRequests,String>  DateOfReturn;
-    public  TableColumn<EquipmentRequests,String>  Fine;
-    public ObservableList<EquipmentRequests> List;
+    public  TableView<EquipmentBorrowRecord> equipmentBorrowRecordTableView = new TableView<>();
+    public  TableColumn<EquipmentBorrowRecord,String>   StudentIDcolumn;
+    public  TableColumn<EquipmentBorrowRecord,String>   IssuedEquipmentCol;
+    public  TableColumn<EquipmentBorrowRecord,String>   DateOfIssueCol;
+    public  TableColumn<EquipmentBorrowRecord,String>   EquipmentIDCol;
+    public  TableColumn<EquipmentBorrowRecord,String>  DateOfReturn;
+    public  TableColumn<EquipmentBorrowRecord,String>  Fine;
+    public ObservableList<EquipmentBorrowRecord> equipmentBorrowRecords;
 
-    public ImageView ManageEQBtn = new ImageView();
     public Button logOutButton = new Button();
-    public ImageView equipment = new ImageView();
-    public ImageView  issuefine1 = new ImageView();
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        equipmentBorrowRecords = FXCollections.observableList(getIssuedList());
+
+        StudentIDcolumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
+        IssuedEquipmentCol.setCellValueFactory(new PropertyValueFactory<>("IssuedEquipmentName"));
+        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("IssuedDate"));
+        EquipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
+        DateOfReturn.setCellValueFactory(new PropertyValueFactory<>("DateOfReturn"));
+        Fine.setCellValueFactory(new PropertyValueFactory<>("Fine"));
+
+        equipmentBorrowRecordTableView.setItems(equipmentBorrowRecords);
+    }
 
     public void manageEquipment(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
@@ -58,17 +69,7 @@ public class checkIssuedEquipmentController implements Initializable {
         new Main().changeSceneToIssueFine(stage);
     }
 
-    public ArrayList<EquipmentRequests> getIssuedList(){
-        return new EducationalInstitute().getAllCurrentlyBorrowedEquipmentRecords();
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-     /*   List = FXCollections.observableList(getIssuedList());
-        StudentIDcolumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
-        IssuedEquipmentCol.setCellValueFactory(new PropertyValueFactory<>("IssuedEquipmentName"));
-        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("IssuedDate"));
-        EquipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
-        equipmentBorrowRecordTableView.setItems(List);*/
+    public ArrayList<EquipmentBorrowRecord> getIssuedList(){
+        return new EducationalInstitute().getAllBorrowedEquipmentRecords();
     }
 }

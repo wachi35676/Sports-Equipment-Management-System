@@ -49,9 +49,4 @@ public class SportsTeacherRecord {
 
         return persistenceHandler.getAllSportsTeacher();
     }
-    public void issueFine(int rollNo,float fineAmount){
-
-        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        persistenceHandler.issueFine(rollNo,fineAmount);
-    }
 }

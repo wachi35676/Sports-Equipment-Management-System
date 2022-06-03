@@ -4,6 +4,7 @@ import project.sportsequipmentmanagementsystem.Date;
 import project.sportsequipmentmanagementsystem.persistence.PersistenceFactory;
 
 public class EquipmentBorrowRecord {
+    public String borrowRecordID;
 
     public String equipmentID;
     public String studentID;
@@ -11,7 +12,18 @@ public class EquipmentBorrowRecord {
     public Date dateOfReturn;
     public Float fine;
 
-    public EquipmentBorrowRecord(String equipmentID, String studentID, Date dateOfIssue){
+
+
+    public EquipmentBorrowRecord(String borrowRecordID, String equipmentID, String studentID, Date dateOfIssue, Date dateOfReturn, Float fine) {
+        this.borrowRecordID = borrowRecordID;
+        this.equipmentID = equipmentID;
+        this.studentID = studentID;
+        this.dateOfIssue = dateOfIssue;
+        this.dateOfReturn = dateOfReturn;
+        this.fine = fine;
+    }
+
+    public EquipmentBorrowRecord( String equipmentID, String studentID, Date dateOfIssue){
         this.equipmentID = equipmentID;
         this.studentID = studentID;
         this.dateOfIssue = dateOfIssue;
@@ -55,5 +67,13 @@ public class EquipmentBorrowRecord {
 
     public void setFine(Float fine) {
         this.fine = fine;
+    }
+
+    public String getBorrowRecordID() {
+        return borrowRecordID;
+    }
+
+    public void setBorrowRecordID(String borrowRecordID) {
+        this.borrowRecordID = borrowRecordID;
     }
 }

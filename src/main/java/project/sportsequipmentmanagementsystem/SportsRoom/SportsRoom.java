@@ -56,7 +56,7 @@ public class SportsRoom {
         return null;
     }
 
-    public ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords(){
+    public ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords(){
 
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         return persistenceHandler.getAllCurrentlyBorrowedEquipmentRecords();
@@ -66,9 +66,20 @@ public class SportsRoom {
         return persistenceHandler.getDefaulters();
     }
 
-    public void returnEquipment(int rollNo, String dateOfReturn, int equipmentID, float amount){
+    public void returnEquipment(int issueRecord, String dateOfReturn){
 
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        persistenceHandler.EquipmentReturned(rollNo,dateOfReturn,equipmentID,amount);
+        persistenceHandler.returnEquipment(issueRecord,dateOfReturn);
+    }
+
+    public void issueFine(int issueRecordId,float fine){
+
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+        persistenceHandler.issueFine(issueRecordId,fine);
+    }
+
+    public ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords(){
+        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
+        return persistenceHandler.getAllBorrowedEquipmentRecords();
     }
 }

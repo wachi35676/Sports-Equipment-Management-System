@@ -3,7 +3,6 @@ package project.sportsequipmentmanagementsystem.persistence;
 import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
 import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
-import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
 import project.sportsequipmentmanagementsystem.Student.Student;
 
@@ -23,8 +22,9 @@ public interface PersistenceHandler {
     void removeSportsTeacher(String id);
     void editSportTeacher(SportsTeacher sportsTeacher);
     void  issueFine(int rollno,float amount);
-    ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords();
-    void EquipmentReturned(int rollNo,String date,int equipmentID,float amount);
+    ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords();
+    void returnEquipment(int issueRecord, String date);
     ArrayList<Defaulter> getDefaulters();
     void processBorrowRequest(EquipmentBorrowRecord equipmentBorrowRecord);
+    ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords();
 }

@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.Date;
@@ -99,5 +96,13 @@ public class ManageStudentController implements Initializable {
 
         studentObservableList = FXCollections.observableArrayList(students);
         studentsTable.setItems(studentObservableList);
+    }
+
+    private void generateAlert(String header, String body){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(body);
+        alert.show();
     }
 }

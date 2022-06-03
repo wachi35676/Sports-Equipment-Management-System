@@ -175,35 +175,53 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
-    public ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords() {
-        ArrayList<EquipmentRequests> records = new ArrayList<>();
+    public ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords() {
+        ArrayList<EquipmentBorrowRecord> equipmentBorrowRecords = new ArrayList<>();
         try{
-            String sql = "SELECT issuance_record.Student_ID,equipment.Name,issuance_record.Date_Issued,issuance_record.Equipment_ID FROM issuance_record INNER JOIN equipment ON equipment.Equipment_ID=issuance_record.Equipment_ID;";
+            String sql = "SELECT * FROM issuance_record";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery(sql);
 
             while(resultSet.next()){
-                records.add(new EquipmentRequests (resultSet.getString("Student_ID"), resultSet.getString("Name"), new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued")), resultSet.getString("Equipment_ID")));
+                equipmentBorrowRecords.add(new EquipmentBorrowRecord (resultSet.getString("Issuance_Record_ID"), resultSet.getString("Equipment_ID"), resultSet.getString("Student_ID"),  new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued")), new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned")), Float.parseFloat(resultSet.getString("Fine"))));
             }
 
         }catch (Exception e){
 
         }
-        return records;
+        return equipmentBorrowRecords;
     }
 
     @Override
-    public void EquipmentReturned(int rollNo, String date, int equipmentID, float amount) {
+    public ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords() {
+        ArrayList<EquipmentBorrowRecord> equipmentBorrowRecords = new ArrayList<>();
         try{
-            String sql1 = "update issuance_record set Date_Returned=?,Fine=? where Student_ID=?";
-            String sql2 ="update equipment set Availability='Available' where Equipment_ID=?";
+            String sql = "SELECT * FROM issuance_record where Date_Returned is null";
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while(resultSet.next()){
+                equipmentBorrowRecords.add(new EquipmentBorrowRecord (resultSet.getString("Issuance_Record_ID"), resultSet.getString("Equipment_ID"), resultSet.getString("Student_ID"),  new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued")), new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned")), Float.parseFloat(resultSet.getString("Fine"))));
+            }
+
+        }catch (Exception e){
+
+        }
+        return equipmentBorrowRecords;
+    }
+
+    @Override
+    public void returnEquipment(int issueRecord, String date) {
+        try{
+            String sql1 = "update issuance_record set Date_Returned=? where Issuance_Record_ID=?";
+            String sql2 ="update equipment INNER join issuance_record on equipment.Equipment_ID = issuance_record.Equipment_ID set Availability='Available' where Issuance_Record_ID=?";
             PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
             preparedStatement1.setString(1,date);
-            preparedStatement1.setFloat(2,amount);
-            preparedStatement1.setInt(3,rollNo);
+            preparedStatement1.setInt(2,issueRecord);
             PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
-            preparedStatement2.setInt(1,equipmentID);
+            preparedStatement2.setInt(1,issueRecord);
             preparedStatement1.execute();
             preparedStatement2.execute();
         }

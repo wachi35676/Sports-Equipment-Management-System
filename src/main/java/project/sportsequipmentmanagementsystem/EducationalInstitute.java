@@ -1,10 +1,7 @@
 package project.sportsequipmentmanagementsystem;
 
 import project.sportsequipmentmanagementsystem.Principal.PrincipalRecord;
-import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
-import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
-import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
-import project.sportsequipmentmanagementsystem.SportsRoom.SportsRoom;
+import project.sportsequipmentmanagementsystem.SportsRoom.*;
 import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
 import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacherRecord;
 import project.sportsequipmentmanagementsystem.Student.Student;
@@ -71,17 +68,21 @@ public class EducationalInstitute {
          sportsRoom.processBorrowRequest(equipmentID,studentID,dateOfIssue);
     }
 
-    public void IssueFine(int rollno,float amount){
-       sportsTeacherRecord.issueFine(rollno,amount);
+    public void IssueFine(int issueRecordID,float fine){
+       sportsRoom.issueFine(issueRecordID,fine);
     }
 
-    public ArrayList<EquipmentRequests> getAllCurrentlyBorrowedEquipmentRecords(){
+    public ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords(){
        return sportsRoom.getAllCurrentlyBorrowedEquipmentRecords();
     }
-    public void returnEquipment(int rollNo, String dateOfReturn, int equipmentID, float amount){
-        sportsRoom.returnEquipment(rollNo,dateOfReturn,equipmentID,amount);
+    public void returnEquipment(int issueRecord, String dateOfReturn){
+        sportsRoom.returnEquipment(issueRecord,dateOfReturn);
     }
     public ArrayList<Defaulter> getDefaulters(){
         return sportsRoom.getDefaultersList();
+    }
+
+    public ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords(){
+        return sportsRoom.getAllBorrowedEquipmentRecords();
     }
 }

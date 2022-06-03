@@ -1,21 +1,29 @@
 package project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class ReturnIssueEquipmentController {
+public class ReturnIssueEquipmentController implements Initializable {
 
     public ImageView ManageEQBtn = new ImageView();
     public Button logOutButton = new Button();
@@ -23,18 +31,32 @@ public class ReturnIssueEquipmentController {
     public ImageView equipment = new ImageView();
     public  ImageView Fine = new ImageView();
 
-    public TableView<EquipmentRequests> equipmentBorrowRecordTableView = new TableView<>();
-    public TableColumn<EquipmentRequests,String> StudentIDcolumn;
-    public  TableColumn<EquipmentRequests,String>   IssuedEquipmentCol;
-    public  TableColumn<EquipmentRequests,String>   DateOfIssueCol;
-    public  TableColumn<EquipmentRequests,String>   EquipmentIDCol;
-    public  TableColumn<EquipmentRequests,String>  DateOfReturn1;
-    public  TableColumn<EquipmentRequests,String>  Fine1;
+    public TableView<EquipmentBorrowRecord> equipmentBorrowRecordTableView = new TableView<>();
+    public TableColumn<EquipmentBorrowRecord,String> borrow_ID;
+    public TableColumn<EquipmentBorrowRecord,String> StudentIDcolumn;
+    public  TableColumn<EquipmentBorrowRecord,String>   DateOfIssueCol;
+    public  TableColumn<EquipmentBorrowRecord,String>   EquipmentIDCol;
+    public ObservableList<EquipmentBorrowRecord> equipmentBorrowRecords;
 
-    public    TextField    RollNoTxtF =      new TextField();
-    public    TextField    EquipmentIDtxtF = new TextField();
+    public    TextField    borrowRecord_ID =      new TextField();
     public    TextField    DateOfReturn   =  new TextField();
-    public    TextField    AmountOnDamage =  new TextField();
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        equipmentBorrowRecords = FXCollections.observableList(getIssuedList());
+
+        borrow_ID.setCellValueFactory(new PropertyValueFactory<>("BorrowRecordID"));
+        StudentIDcolumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
+        EquipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
+        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("IssuedDate"));
+
+        equipmentBorrowRecordTableView.setItems(equipmentBorrowRecords);
+    }
+
+    public ArrayList<EquipmentBorrowRecord> getIssuedList(){
+        return new EducationalInstitute().getAllCurrentlyBorrowedEquipmentRecords();
+    }
 
     public void manageEquipment(MouseEvent mouseEvent) throws IOException {
 
@@ -63,10 +85,8 @@ public class ReturnIssueEquipmentController {
     }
 
     public void ReturnEquipement(ActionEvent event) {
-        int rollno= Integer.parseInt(RollNoTxtF.getText());
-        int  id =  Integer.parseInt(EquipmentIDtxtF.getText());
+        int issueRecord= Integer.parseInt(borrowRecord_ID.getText());
         String  date =    DateOfReturn.getText();
-        float amount  = Float.parseFloat(AmountOnDamage.getText());
-        new EducationalInstitute().returnEquipment(rollno,date,id,amount);
+        new EducationalInstitute().returnEquipment(issueRecord,date);
     }
 }

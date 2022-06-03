@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,7 +24,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController.ReturnIssueEquipmentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.sportsequipmentmanagementsystem.UIControllers.TeacherScreenController.ReturnIssueEquipmentController">
    <children>
       <AnchorPane layoutX="-4.0" layoutY="-5.0" prefHeight="626.0" prefWidth="824.0">
          <children>
@@ -111,17 +119,7 @@
                         </Text>
                         <Pane layoutX="92.0" layoutY="60.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
                            <children>
-                              <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="462.0" layoutY="14.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@black-image.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="191.0" fitWidth="221.0" layoutX="60.0" layoutY="154.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@black-image.png" />
-                                 </image>
-                              </ImageView>
-                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="239.0" mnemonicParsing="false" onAction="#ReturnEquipement" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
+                              <Button fx:id="equipmentReturn" layoutX="248.0" layoutY="171.0" mnemonicParsing="false" onAction="#ReturnEquipement" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: BLACK;" text="EquipmentReturned" textFill="#d3d3d3">
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
@@ -129,34 +127,22 @@
                                     <Bloom threshold="0.0" />
                                  </effect>
                               </Button>
-                              <TextField fx:id="RollNoTxtF" layoutX="232.0" layoutY="31.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter RollNumber" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="borrowRecord_ID" layoutX="232.0" layoutY="31.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Borrow Record ID" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
-                              <TextField fx:id="EquipmentIDtxtF" layoutX="232.0" layoutY="83.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter Equipement ID" style="-fx-background-color: WHITE;">
-                                 <effect>
-                                    <DropShadow spread="0.91" />
-                                 </effect>
-                              </TextField>
-                              <TextField fx:id="AmountOnDamage" layoutX="232.0" layoutY="182.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter fine amount on damage" style="-fx-background-color: WHITE;">
-                                 <effect>
-                                    <DropShadow spread="0.91" />
-                                 </effect>
-                              </TextField>
-                              <TextField fx:id="DateOfReturn" layoutX="233.0" layoutY="132.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
+                              <TextField fx:id="DateOfReturn" layoutX="232.0" layoutY="88.0" prefHeight="31.0" prefWidth="221.0" promptText="Enter time of return and Date" style="-fx-background-color: WHITE;">
                                  <effect>
                                     <DropShadow spread="0.91" />
                                  </effect>
                               </TextField>
                               <TableView fx:id="equipmentBorrowRecordTableView" layoutX="46.0" layoutY="291.0" prefHeight="236.0" prefWidth="600.0">
                                  <columns>
-                                    <TableColumn fx:id="StudentIDcolumn" prefWidth="83.0" text="StudentID" />
-                                    <TableColumn fx:id="IssuedEquipmentCol" prefWidth="130.0" style="-fx-background-color: WHITE;" text="IssuedEquipment" />
-                                    <TableColumn fx:id="DateOfIssueCol" prefWidth="98.0" text="DateOfIssue" />
-                                    <TableColumn fx:id="EquipmentIDCol" prefWidth="102.0" text="EquipmentID" />
-                                    <TableColumn fx:id="DateOfReturn1" prefWidth="110.0" text="DateOfReturn" />
-                                    <TableColumn fx:id="Fine1" prefWidth="75.0" text="Fine" />
+                                    <TableColumn fx:id="borrow_ID" prefWidth="152.0" text="BorrowRecord_ID" />
+                                    <TableColumn fx:id="StudentIDcolumn" prefWidth="150.0" text="StudentID" />
+                                    <TableColumn fx:id="EquipmentIDCol" prefWidth="141.0" text="EquipmentID" />
+                                    <TableColumn fx:id="DateOfIssueCol" prefWidth="156.0" text="DateOfIssue" />
                                  </columns>
                               </TableView>
                            </children>
