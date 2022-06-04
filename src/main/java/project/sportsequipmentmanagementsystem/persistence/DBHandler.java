@@ -1,19 +1,13 @@
 package project.sportsequipmentmanagementsystem.persistence;
 
-import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
 import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
-import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentRequests;
 import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
 import project.sportsequipmentmanagementsystem.Student.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 public class DBHandler implements PersistenceHandler{
     private Connection connection = null;
@@ -313,54 +307,6 @@ public class DBHandler implements PersistenceHandler{
             System.out.println(e);
         }
     }
-
-    @Override
-    public ArrayList<Defaulter> getDefaulters() {
-        ArrayList<Defaulter> defaulters = new ArrayList<>();
-        try{
-            String sql = "SELECT issuance_record.Student_ID,equipment.Name,issuance_record.Equipment_ID,issuance_record.Date_Issued,issuance_record.Date_Returned FROM issuance_record INNER JOIN equipment ON equipment.Equipment_ID=issuance_record.Equipment_ID";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery(sql);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
-
-            while(resultSet.next()){
-                String StudentID = resultSet.getString("issuance_record.Student_ID");
-                String EquipmentName= resultSet.getString("equipment.Name");
-                String equipmentID = resultSet.getString("issuance_record.Date_Issued");
-                String DateIssued =   resultSet.getString("issuance_record.Date_Issued");
-                String DateReturned =  resultSet.getString("issuance_record.Date_Returned");
-
-                project.sportsequipmentmanagementsystem.Date issueDate = new project.sportsequipmentmanagementsystem.Date(DateIssued);
-
-                long diff;
-
-                if (DateReturned == null){
-                    diff = 1;
-                }
-                else {
-                    project.sportsequipmentmanagementsystem.Date returnDate = new project.sportsequipmentmanagementsystem.Date(DateReturned);
-                    Date issuedDate = sdf.parse(issueDate.convert());
-                    Date returnedDate = sdf.parse( returnDate.convert());
-
-                    diff = returnedDate.getTime() - issuedDate.getTime();
-                }
-
-                TimeUnit time = TimeUnit.DAYS;
-                double difference = time.convert(diff, TimeUnit.MILLISECONDS);
-
-                System.out.println("The difference in days is : "+difference);
-                String timePassed = Double.toString(difference);
-
-                Defaulter defaulter = new Defaulter(StudentID,EquipmentName,equipmentID,timePassed);
-
-                defaulters.add(defaulter);
-            }
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return defaulters;
-    }
-
 
 
     @Override

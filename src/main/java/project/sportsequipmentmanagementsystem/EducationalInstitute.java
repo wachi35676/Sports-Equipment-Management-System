@@ -76,9 +76,6 @@ public class EducationalInstitute {
     public float returnEquipment(String issueRecord, String dateOfReturn){
         return sportsRoom.returnEquipment(issueRecord,dateOfReturn);
     }
-    public ArrayList<Defaulter> getDefaulters(){
-        return sportsRoom.getDefaultersList();
-    }
 
     public ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords(){
         return sportsRoom.getAllBorrowedEquipmentRecords();

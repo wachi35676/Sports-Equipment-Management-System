@@ -44,10 +44,6 @@ public class SportsRoom {
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
         return persistenceHandler.getAllCurrentlyBorrowedEquipmentRecords();
     }
-    public ArrayList<Defaulter> getDefaultersList(){
-        PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        return persistenceHandler.getDefaulters();
-    }
 
     public float returnEquipment(String issueRecord, String dateOfReturn){
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();

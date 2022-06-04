@@ -1,6 +1,5 @@
 package project.sportsequipmentmanagementsystem.persistence;
 
-import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
 import project.sportsequipmentmanagementsystem.SportsRoom.Equipment;
 import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
 import project.sportsequipmentmanagementsystem.SportsTeacher.SportsTeacher;
@@ -24,7 +23,6 @@ public interface PersistenceHandler {
     void addFine(String issueRecordID, float amount);
     ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords();
     void returnEquipment(EquipmentBorrowRecord equipmentBorrowRecord);
-    ArrayList<Defaulter> getDefaulters();
     void processBorrowRequest(EquipmentBorrowRecord equipmentBorrowRecord);
     ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords();
     EquipmentBorrowRecord getBorrowRequest(String id);
