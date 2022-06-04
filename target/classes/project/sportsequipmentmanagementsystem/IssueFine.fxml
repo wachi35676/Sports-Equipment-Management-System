@@ -56,12 +56,6 @@
                         <Font name="Segoe UI Bold" size="15.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="127.0" layoutY="15.0" prefHeight="31.0" prefWidth="375.0" promptText="Enter Equipment To Search" />
-                  <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="511.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@search-icon.png" />
-                     </image>
-                  </ImageView>
                   <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                   <Rectangle fill="WHITE" height="200.0" layoutX="600.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
                   <Rectangle fill="WHITE" height="200.0" layoutX="96.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
@@ -112,24 +106,6 @@
                   </Text>
                   <Pane layoutX="92.0" layoutY="60.0" prefHeight="541.0" prefWidth="704.0" style="-fx-background-color: white; -fx-background-radius: 15;">
                      <children>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="462.0" layoutY="14.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@black-image.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="191.0" fitWidth="221.0" layoutX="60.0" layoutY="154.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@black-image.png" />
-                           </image>
-                        </ImageView>
-                        <TableView fx:id="issueFineTable" layoutX="87.0" layoutY="39.0" prefHeight="277.0" prefWidth="531.0">
-                           <columns>
-                              <TableColumn fx:id="studentIdCol" prefWidth="115.0" text="StudentID" />
-                              <TableColumn fx:id="equipmentNameCol" prefWidth="130.0" style="-fx-background-color: White;" text="EquipmentName" />
-                              <TableColumn fx:id="equipmentIDCol" prefWidth="142.0" text="EquipmentID" />
-                              <TableColumn fx:id="daysCol" prefWidth="143.0" text="TimePassed(Days)" />
-                           </columns>
-                        </TableView>
                         <Button fx:id="issueFineButton" layoutX="253.0" layoutY="496.0" mnemonicParsing="false" onAction="#issueFine" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Issue Fine" textFill="#d3d3d3">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -148,6 +124,16 @@
                               <DropShadow spread="0.91" />
                            </effect>
                         </TextField>
+                        <TableView layoutX="29.0" layoutY="32.0" prefHeight="302.0" prefWidth="646.0">
+                          <columns>
+                            <TableColumn fx:id="borrowIDColumn" prefWidth="135.0" text="Borrow Record ID" />
+                            <TableColumn fx:id="equipmentIDColumn" prefWidth="114.0" text="Equipment ID" />
+                              <TableColumn fx:id="studentIDColumn" prefWidth="93.0" text="Student ID" />
+                              <TableColumn fx:id="dateOfIssueColumn" prefWidth="102.0" text="Date Of Issue" />
+                              <TableColumn fx:id="dateOfReturnColumn" prefWidth="116.0" text="Date of Return" />
+                              <TableColumn fx:id="fineColumn" prefWidth="85.0" text="Fine" />
+                          </columns>
+                        </TableView>
                      </children>
                   </Pane>
                   <Button fx:id="logOutButton" layoutX="12.0" layoutY="517.0" mnemonicParsing="false" onAction="#logOut" prefHeight="66.0" prefWidth="70.0" style="-fx-background-color: none;" textFill="TRANSPARENT" />

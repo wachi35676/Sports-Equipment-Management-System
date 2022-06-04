@@ -68,15 +68,15 @@ public class EducationalInstitute {
          sportsRoom.processBorrowRequest(equipmentID,studentID,dateOfIssue);
     }
 
-    public void issueFine(String issueRecordID, float fine){
-       sportsRoom.issueFine(issueRecordID,fine);
+    public void addFine(String issueRecordID, float fine){
+       sportsRoom.addFine(issueRecordID,fine);
     }
 
     public ArrayList<EquipmentBorrowRecord> getAllCurrentlyBorrowedEquipmentRecords(){
        return sportsRoom.getAllCurrentlyBorrowedEquipmentRecords();
     }
-    public void returnEquipment(String issueRecord, String dateOfReturn){
-        sportsRoom.returnEquipment(issueRecord,dateOfReturn);
+    public float returnEquipment(String issueRecord, String dateOfReturn){
+        return sportsRoom.returnEquipment(issueRecord,dateOfReturn);
     }
     public ArrayList<Defaulter> getDefaulters(){
         return sportsRoom.getDefaultersList();

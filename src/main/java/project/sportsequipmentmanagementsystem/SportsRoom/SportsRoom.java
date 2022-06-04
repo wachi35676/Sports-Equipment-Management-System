@@ -73,7 +73,7 @@ public class SportsRoom {
         Date issueDate = equipmentBorrowRecord.getDateOfIssue();
         Date returnDate = equipmentBorrowRecord.getDateOfReturn();
 
-        long diff = 0;
+        long diff;
         try {
             diff = sdf.parse(returnDate.convert()).getTime() - sdf.parse(issueDate.convert()).getTime();
         } catch (ParseException e) {
@@ -83,17 +83,15 @@ public class SportsRoom {
         TimeUnit time = TimeUnit.DAYS;
         double difference = time.convert(diff, TimeUnit.MILLISECONDS);
 
-        System.out.println("The difference in days is : "+difference);
-
         fine = (float) (difference * 100);
 
         return fine;
     }
 
-    public void issueFine(String issueRecordId,float fine){
+    public void addFine(String issueRecordId, float fine){
 
         PersistenceHandler persistenceHandler = PersistenceFactory.getConnection();
-        persistenceHandler.issueFine(issueRecordId,fine);
+        persistenceHandler.addFine(issueRecordId,fine);
     }
 
     public ArrayList<EquipmentBorrowRecord> getAllBorrowedEquipmentRecords(){

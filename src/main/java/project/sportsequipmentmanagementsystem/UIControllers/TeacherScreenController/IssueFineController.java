@@ -15,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import project.sportsequipmentmanagementsystem.EducationalInstitute;
 import project.sportsequipmentmanagementsystem.Main;
-import project.sportsequipmentmanagementsystem.SportsRoom.Defaulter;
+import project.sportsequipmentmanagementsystem.SportsRoom.EquipmentBorrowRecord;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,29 +32,33 @@ public class IssueFineController  implements Initializable {
     public Button issueFineButton = new Button();
     public TextField amountTextField = new TextField();
     public TextField rollNoTextField = new TextField();
-    public TableView<Defaulter> issueFineTable = new TableView<>();
-    public TableColumn<Defaulter,String> studentIdCol = new TableColumn<>();
-    public TableColumn<Defaulter,String> equipmentNameCol = new TableColumn<>();
-    public TableColumn<Defaulter,String> equipmentIDCol = new TableColumn<>();
-    public TableColumn<Defaulter,String> daysCol = new TableColumn<>();
-    public ObservableList<Defaulter> List;
+    public TableView<EquipmentBorrowRecord> issueFineTable = new TableView<>();
+    public TableColumn<EquipmentBorrowRecord,String> borrowIDColumn = new TableColumn<>();
+    public TableColumn<EquipmentBorrowRecord,String> equipmentIDColumn = new TableColumn<>();
+    public TableColumn<EquipmentBorrowRecord,String> studentIDColumn = new TableColumn<>();
+    public TableColumn<EquipmentBorrowRecord,String> dateOfIssueColumn = new TableColumn<>();
+    public TableColumn<EquipmentBorrowRecord,String> dateOfReturnColumn = new TableColumn<>();
+    public TableColumn<EquipmentBorrowRecord,String> fineColumn = new TableColumn<>();
+    public ObservableList<EquipmentBorrowRecord> List;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List = FXCollections.observableList(getDefaulterList());
 
-        studentIdCol.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
-        equipmentNameCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentName"));
-        equipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
-        daysCol.setCellValueFactory(new PropertyValueFactory<>("TimeOfReturn"));
+        borrowIDColumn.setCellValueFactory(new PropertyValueFactory<>("BorrowRecordID"));
+        equipmentIDColumn.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
+        studentIDColumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
+        dateOfIssueColumn.setCellValueFactory(new PropertyValueFactory<>("DateOfIssue"));
+        dateOfReturnColumn.setCellValueFactory(new PropertyValueFactory<>("DateOfReturn"));
+        fineColumn.setCellValueFactory(new PropertyValueFactory<>("Fine"));
 
         issueFineTable.setItems(List);
 
     }
 
-    private ArrayList<Defaulter> getDefaulterList(){
+    private ArrayList<EquipmentBorrowRecord> getDefaulterList(){
 
-        return new EducationalInstitute().getDefaulters();
+        return new EducationalInstitute().getAllBorrowedEquipmentRecords();
     }
 
     public void manageEquipment(MouseEvent mouseEvent) throws IOException {
@@ -87,6 +91,9 @@ public class IssueFineController  implements Initializable {
     public void issueFine(ActionEvent event) {
         String issueRecordID =   rollNoTextField.getText() ;
         float amount =  Float.parseFloat(  amountTextField.getText() );
-        new EducationalInstitute().issueFine(issueRecordID,amount);
+        new EducationalInstitute().addFine(issueRecordID,amount);
+
+        List = FXCollections.observableList(getDefaulterList());
+        issueFineTable.setItems(List);
     }
 }

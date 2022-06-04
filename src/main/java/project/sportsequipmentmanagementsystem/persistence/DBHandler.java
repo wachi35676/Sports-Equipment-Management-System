@@ -148,11 +148,11 @@ public class DBHandler implements PersistenceHandler{
     }
 
     @Override
-    public void issueFine(String issueRecordID, float amount) {
+    public void addFine(String issueRecordID, float fine) {
         try {
-            String sql = "update issuance_record set Fine=? where Student_ID=?";
+            String sql = "update issuance_record set Fine=? where Issuance_Record_ID=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setFloat(1, amount);
+            preparedStatement.setFloat(1, fine);
             preparedStatement.setString(2, issueRecordID);
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -194,11 +194,38 @@ public class DBHandler implements PersistenceHandler{
             ResultSet resultSet = statement.executeQuery(sql);
 
             while(resultSet.next()){
-                equipmentBorrowRecords.add(new EquipmentBorrowRecord (resultSet.getString("Issuance_Record_ID"), resultSet.getString("Equipment_ID"), resultSet.getString("Student_ID"),  new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued")), new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned")), Float.parseFloat(resultSet.getString("Fine"))));
+                String issuanceRecordID = resultSet.getString("Issuance_Record_ID");
+                String equipmentID = resultSet.getString("Equipment_ID");
+                String studentID = resultSet.getString("Student_ID");
+                project.sportsequipmentmanagementsystem.Date issueDate;
+                try {
+                    issueDate = new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued"));
+                }
+                catch (Exception e){
+                    issueDate = new project.sportsequipmentmanagementsystem.Date("000000");
+                }
+
+                project.sportsequipmentmanagementsystem.Date returnDate;
+                try {
+                    returnDate = new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned"));
+                }
+                catch (Exception e){
+                    returnDate = new project.sportsequipmentmanagementsystem.Date("000000");;
+                }
+
+                float fine;
+                try {
+                    fine = Float.parseFloat(resultSet.getString("Fine"));
+                }
+                catch(Exception e){
+                    fine = 0;
+                }
+
+                equipmentBorrowRecords.add(new EquipmentBorrowRecord (issuanceRecordID, equipmentID,studentID, issueDate, returnDate, fine));
             }
 
         }catch (Exception e){
-
+            System.out.println(e);
         }
         return equipmentBorrowRecords;
     }
@@ -231,16 +258,35 @@ public class DBHandler implements PersistenceHandler{
 
 
             while(resultSet.next()){
+
                 String issuanceRecordID = resultSet.getString("Issuance_Record_ID");
                 String equipmentID = resultSet.getString("Equipment_ID");
                 String studentID = resultSet.getString("Student_ID");
-                project.sportsequipmentmanagementsystem.Date issueDate = new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued"));
-                //project.sportsequipmentmanagementsystem.Date returnDate =new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned"));
-                //Float fine = Float.parseFloat(resultSet.getString("Fine"));
+                project.sportsequipmentmanagementsystem.Date issueDate;
+                try {
+                    issueDate = new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Issued"));
+                }
+                catch (Exception e){
+                    issueDate = new project.sportsequipmentmanagementsystem.Date("000000");
+                }
 
-                EquipmentBorrowRecord equipmentBorrowRecord = new EquipmentBorrowRecord(issuanceRecordID, equipmentID, studentID, issueDate, null, null);
+//                project.sportsequipmentmanagementsystem.Date returnDate;
+//                try {
+//                    returnDate = new project.sportsequipmentmanagementsystem.Date(resultSet.getString("Date_Returned"));
+//                }
+//                catch (Exception e){
+//                    returnDate = new project.sportsequipmentmanagementsystem.Date("000000");;
+//                }
+//
+//                float fine;
+//                try {
+//                    fine = Float.parseFloat(resultSet.getString("Fine"));
+//                }
+//                catch(Exception e){
+//                    fine = 0;
+//                }
 
-                equipmentBorrowRecords.add(equipmentBorrowRecord);
+                equipmentBorrowRecords.add(new EquipmentBorrowRecord (issuanceRecordID, equipmentID,studentID, issueDate));
             }
 
         }catch (Exception e){
@@ -252,11 +298,12 @@ public class DBHandler implements PersistenceHandler{
     @Override
     public void returnEquipment(EquipmentBorrowRecord equipmentBorrowRecord) {
         try{
-            String sql1 = "update issuance_record set Date_Returned=? where Issuance_Record_ID=?";
+            String sql1 = "update issuance_record set Date_Returned=?, Fine = ? where Issuance_Record_ID=?";
             String sql2 ="update equipment INNER join issuance_record on equipment.Equipment_ID = issuance_record.Equipment_ID set Availability='Available' where Issuance_Record_ID=?";
             PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
             preparedStatement1.setString(1,equipmentBorrowRecord.getDateOfReturn().toString());
-            preparedStatement1.setInt(2,Integer.parseInt(equipmentBorrowRecord.getBorrowRecordID()));
+            preparedStatement1.setString(2,equipmentBorrowRecord.getFine().toString());
+            preparedStatement1.setInt(3,Integer.parseInt(equipmentBorrowRecord.getBorrowRecordID()));
             PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
             preparedStatement2.setInt(1,Integer.parseInt(equipmentBorrowRecord.getBorrowRecordID()));
             preparedStatement1.execute();

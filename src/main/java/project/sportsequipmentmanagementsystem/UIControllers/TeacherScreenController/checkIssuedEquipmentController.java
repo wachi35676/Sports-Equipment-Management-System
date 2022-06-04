@@ -39,10 +39,10 @@ public class checkIssuedEquipmentController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         equipmentBorrowRecords = FXCollections.observableList(getIssuedList());
 
+        IssuedEquipmentCol.setCellValueFactory(new PropertyValueFactory<>("BorrowRecordID"));
         StudentIDcolumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
-        IssuedEquipmentCol.setCellValueFactory(new PropertyValueFactory<>("IssuedEquipmentName"));
-        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("IssuedDate"));
         EquipmentIDCol.setCellValueFactory(new PropertyValueFactory<>("EquipmentID"));
+        DateOfIssueCol.setCellValueFactory(new PropertyValueFactory<>("DateOfIssue"));
         DateOfReturn.setCellValueFactory(new PropertyValueFactory<>("DateOfReturn"));
         Fine.setCellValueFactory(new PropertyValueFactory<>("Fine"));
 

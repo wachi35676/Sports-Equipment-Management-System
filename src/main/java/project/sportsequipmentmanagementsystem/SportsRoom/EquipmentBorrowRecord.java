@@ -30,6 +30,13 @@ public class EquipmentBorrowRecord {
         this.dateOfIssue = dateOfIssue;
     }
 
+    public EquipmentBorrowRecord(String issuanceRecordID, String equipmentID, String studentID, Date issueDate) {
+        this.borrowRecordID = issuanceRecordID;
+        this.equipmentID = equipmentID;
+        this.studentID = studentID;
+        this.dateOfIssue = issueDate;
+    }
+
     public String getEquipmentID() {
         return equipmentID;
     }
